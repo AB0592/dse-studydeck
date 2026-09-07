@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>DSE 理科冲刺台</title>
+<style>
+  :root{
+    --bg:#f4f6fb; --card:#ffffff; --ink:#1c2333; --sub:#5b6472;
+    --line:#e3e8f0; --accent:#2563eb; --accent2:#0ea5a4;
+    --math:#2563eb; --chem:#d97706; --bio:#16a34a; --econ:#9333ea;
+    --warn:#dc2626; --ok:#16a34a; --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang HK","PingFang SC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--ink);padding-bottom:76px;line-height:1.55}
+  .app{max-width:600px;margin:0 auto;padding:14px 14px 30px}
+  header{background:linear-gradient(135deg,#1e3a8a,#2563eb 55%,#0ea5a4);color:#fff;border-radius:var(--radius);padding:18px 18px 16px;margin-bottom:14px}
+  header h1{font-size:19px;letter-spacing:.5px}
+  header .sub{font-size:12px;opacity:.85;margin-top:4px}
+  .wtag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:2px 10px;border-radius:99px;font-size:12px;margin-top:8px}
+  .panel{background:var(--card);border-radius:var(--radius);padding:16px;margin-bottom:14px;box-shadow:0 1px 3px rgba(16,24,40,.06)}
+  .panel h2{font-size:14px;color:var(--sub);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+  .panel h2 .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+  .muted{color:var(--sub);font-size:12px}
+  .day-head{font-size:15px;font-weight:700;margin-bottom:6px}
+  .slot{display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:13px}
+  .slot:last-child{border-bottom:none}
+  .slot .tm{flex:0 0 74px;color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
+  .slot .tx{flex:1}
+  .pill{display:inline-block;padding:1px 8px;border-radius:99px;font-size:11px;color:#fff;margin-right:4px}
+  .tabbar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:flex;z-index:50}
+  .tabbar button{flex:1;padding:10px 0 8px;border:none;background:none;font-size:11px;color:var(--sub);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+  .tabbar button .ic{font-size:18px;line-height:1}
+  .tabbar button.on{color:var(--accent);font-weight:700}
+  .page{display:none}.page.on{display:block}
+  /* cards */
+  .subject-row{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+  .subj-btn{flex:1;min-width:110px;border:2px solid var(--line);background:#fff;border-radius:12px;padding:12px 6px;text-align:center;cursor:pointer;font-weight:700;font-size:13px;color:var(--ink)}
+  .subj-btn.on{border-color:var(--sc,#2563eb);background:color-mix(in srgb,var(--sc,#2563eb) 8%,#fff)}
+  .subj-btn small{display:block;font-weight:400;font-size:10px;color:var(--sub)}
+  .flash-wrap{position:relative;min-height:230px}
+  .flash{background:linear-gradient(160deg,#ffffff,#f8faff);border:1px solid var(--line);border-radius:18px;padding:24px 18px;min-height:230px;cursor:pointer;display:flex;flex-direction:column;justify-content:center;box-shadow:0 6px 18px rgba(37,99,235,.08)}
+  .flash .side{font-size:10px;color:var(--sub);letter-spacing:1px;position:absolute;top:12px;left:16px}
+  .flash .q{font-size:16px;font-weight:700;white-space:pre-wrap}
+  .flash .a{font-size:15px;white-space:pre-wrap;display:none;animation:fade .2s}
+  .flash.show .a{display:block}.flash.show .q{display:none}
+  .flash .tag{position:absolute;top:12px;right:14px;font-size:11px;color:#fff;padding:2px 8px;border-radius:99px}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1}}
+  .btn-row{display:flex;gap:8px;margin-top:12px}
+  .btn{flex:1;border:none;border-radius:12px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;color:#fff}
+  .btn.g{background:var(--ok)}.btn.r{background:var(--warn)}.btn.b{background:var(--accent)}.btn.o{background:var(--accent2)}
+  .btn.ghost{background:#eef1f6;color:var(--ink)}
+  .cnt{text-align:center;font-size:12px;color:var(--sub);margin-top:10px}
+  .bar{height:6px;background:#eef1f6;border-radius:99px;overflow:hidden;margin-top:8px}
+  .bar i{display:block;height:100%;background:var(--ok);width:0%;transition:width .3s}
+  /* mistakes */
+  input,select,textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink)}
+  .fld{margin-bottom:9px}
+  .fld label{font-size:11px;color:var(--sub);display:block;margin-bottom:3px}
+  .mk-list{list-style:none}
+  .mk-list li{display:flex;gap:8px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--line);font-size:13px}
+  .mk-list .del{margin-left:auto;background:none;border:none;color:var(--warn);font-size:16px;cursor:pointer;padding:0 4px}
+  .mk-tag{font-size:10px;color:#fff;border-radius:6px;padding:1px 6px;flex:0 0 auto;margin-top:1px}
+  .empty{text-align:center;color:var(--sub);font-size:12px;padding:14px 0}
+  textarea{min-height:64px;resize:vertical}
+  .copyout{width:100%;border:1px dashed var(--line);border-radius:10px;background:#fafbff;min-height:90px;font-size:12px;padding:10px;margin-top:8px;color:var(--sub)}
+  .goal-line{display:flex;gap:8px;margin-bottom:6px;font-size:13px}
+  .goal-line b{min-width:52px}
+  .badge{display:inline-block;background:#eef1f6;border-radius:8px;padding:6px 10px;font-size:12px;margin:0 4px 6px 0;color:var(--sub)}
+  .settings-line{font-size:13px;margin-bottom:10px;display:flex;align-items:center;gap:8px;justify-content:space-between}
+  @media (min-width:640px){body{padding-bottom:0}.tabbar{max-width:600px;margin:0 auto;border-radius:14px 14px 0 0;left:50%;transform:translateX(-50%);bottom:8px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>DSE 理科冲刺台</h1>
+    <div class="sub">2027 DSE 重考 · 数学/化学/生物/经济</div>
+    <div><span class="wtag" id="wtag">第 W 周</span> <span class="wtag" id="todayTag"></span></div>
+  </header>
+
+  <!-- 今日 -->
+  <div class="page on" id="pg-today">
+    <div class="panel">
+      <h2><span class="dot" style="background:var(--accent)"></span>今日日程 <span style="margin-left:auto;font-weight:400" id="dayName"></span></h2>
+      <div id="todaySlots"></div>
+    </div>
+    <div class="panel">
+      <h2><span class="dot" style="background:var(--ok)"></span>今日三件套</h2>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-bottom:6px"><input type="checkbox" class="chk" data-k="t1" style="width:auto;margin-top:2px"><span>大课当日消化（疑问清单不过夜）</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-bottom:6px"><input type="checkbox" class="chk" data-k="t2" style="width:auto;margin-top:2px"><span>错题入本 ≥ 3 条</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px"><input type="checkbox" class="chk" data-k="t3" style="width:auto;margin-top:2px"><span>运动 30 分钟</span></label>
+    </div>
+    <div class="panel">
+      <h2><span class="dot" style="background:var(--accent2)"></span>本周目标速览</h2>
+      <div class="muted" id="weekFocus"></div>
+    </div>
+  </div>
+
+  <!-- 闪卡 -->
+  <div class="page" id="pg-cards">
+    <div class="panel">
+      <h2><span class="dot" style="background:var(--accent)"></span>科目卡组</h2>
+      <div class="subject-row" id="subjRow"></div>
+      <div class="cnt" id="cardMeta"></div>
+      <div class="flash-wrap">
+        <div class="flash" id="flash">
+          <span class="side" id="sideLbl">问题</span>
+          <span class="tag" id="cardTag">数学</span>
+          <div class="q" id="qText"></div>
+          <div class="a" id="aText"></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn r" id="btnAgain">再练</button>
+        <button class="btn g" id="btnKnow">记住了</button>
+      </div>
+      <div class="btn-row">
+        <button class="btn ghost" id="btnFlip" style="flex:1">翻面看答案</button>
+        <button class="btn ghost" id="btnResetSubj" style="flex:0 0 100px">重置本科</button>
+      </div>
+      <div class="cnt"><span id="knowCnt">0</span> 已掌握 / 复习队列 <span id="queueCnt">0</span></div>
+      <div class="bar"><i id="progBar"></i></div>
+      <div class="cnt muted" style="font-size:11px">★ = 得分技巧卡（答题套路），比公式更值钱</div>
+    </div>
+  </div>
+
+  <!-- 错题 -->
+  <div class="page" id="pg-mistakes">
+    <div class="panel">
+      <h2><span class="dot" style="background:var(--warn)"></span>登记错题（30 秒）</h2>
+      <div class="fld"><label>科目</label><select id="mkSubj"><option>数学</option><option>化学</option><option>生物</option><option>经济</option></select></div>
+      <div class="fld"><label>错因（选主要的一项）</label><select id="mkWhy"><option>概念不清</option><option>计算失误</option><option>审题偏差</option><option>答题结构/表述</option><option>时间不够</option></select></div>
+      <div class="fld"><label>知识点 / 一句话</label><input id="mkNote" placeholder="例：等比数列求和公式 r=1 特例"></div>
+      <div class="btn b" id="mkAdd" style="text-align:center">入本</div>
+    </div>
+    <div class="panel">
+      <h2><span class="dot" style="background:var(--warn)"></span>错题本 <span style="margin-left:auto;font-weight:400" id="mkCount"></span></h2>
+      <div style="display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap" id="mkFilter"></div>
+      <ul class="mk-list" id="mkList"></ul>
+      <div class="empty" id="mkEmpty" style="display:none">还没有错题。今天开始记第一条？</div>
+    </div>
+  </div>
+
+  <!-- 复盘 -->
+  <div class="page" id="pg-review">
+    <div class="panel">
+      <h2><span class="dot" style="background:var(--accent2)"></span>周日复盘清单（17:00 前交教练）</h2>
+      <div class="fld"><label>1. 本周进度（大课消化 OK？各科主题到哪？）</label><textarea id="rv1" placeholder="例：数学 W1 二次函数完成，P2 首测错 11 题…"></textarea></div>
+      <div class="fld"><label>2. 错题统计（总数 / 高频错因）</label><textarea id="rv2" placeholder="例：共 14 条，数学计算失误 6 条最扎眼…"></textarea></div>
+      <div class="fld"><label>3. 下周调整（继续 / 停止 / 开始什么）</label><textarea id="rv3" placeholder="例：周三 4 大课太累，晚自习改早睡…"></textarea></div>
+      <div class="fld"><label>4. 一句话自评</label><input id="rv4" placeholder="例：本周粤语课跟得上 60%，疑问都当天清了"></div>
+      <div class="btn o" id="rvGen" style="text-align:center">生成复盘文本</div>
+      <textarea class="copyout" id="rvOut" readonly placeholder="点上方生成后，全选复制发给教练"></textarea>
+    </div>
+  </div>
+
+  <!-- 设置 -->
+  <div class="page" id="pg-settings">
+    <div class="panel">
+      <h2><span class="dot" style="background:var(--sub)"></span>目标（记住为什么拼）</h2>
+      <div class="goal-line"><b>数学</b> 4 → 5 / 5* <span class="muted">（主战场 16h/周）</span></div>
+      <div class="goal-line"><b>经济</b> 2 → 4/5 <span class="muted">（最大增量）</span></div>
+      <div class="goal-line"><b>化学</b> 4 → 5</div>
+      <div class="goal-line"><b>生物</b> 4 → 5</div>
+      <div class="muted">best5 20 → 24 · 港三大理学类 · 英文 3 已够（2027 不考）</div>
+    </div>
+    <div class="panel">
+      <h2><span class="dot" style="background:var(--sub)"></span>当前进度周</h2>
+      <div class="settings-line">本周是第几周（W1 = 9/7 起）<input type="number" id="weekNo" min="1" max="40" style="width:70px"></div>
+      <button class="btn ghost" id="btnApplyWeek" style="width:100%">应用</button>
+      <div class="muted" style="margin-top:8px">W6（10/17-18）= 第一次半程模拟体检</div>
+    </div>
+    <div class="panel">
+      <h2><span class="dot" style="background:var(--sub)"></span>使用说明</h2>
+      <div class="muted">· 今日页：每天自动显示当天日程，跟着时段走<br>· 闪卡页：点卡片翻面 → 诚实点"记住了/再练"，不会的会反复出现<br>· 错题页：30 秒记一条，周末按科目清<br>· 复盘页：周日晚填，生成文本复制发教练<br>· 数据存在本机浏览器，清除浏览记录会丢</div>
+    </div>
+    <div class="panel">
+      <button class="btn ghost" id="btnResetAll" style="width:100%;color:var(--warn)">重置全部数据（慎用）</button>
+    </div>
+  </div>
+</div>
+
+<nav class="tabbar">
+  <button data-pg="today" class="on"><span class="ic">📋</span>今日</button>
+  <button data-pg="cards"><span class="ic">🃏</span>闪卡</button>
+  <button data-pg="mistakes"><span class="ic">📌</span>错题</button>
+  <button data-pg="review"><span class="ic">📝</span>复盘</button>
+  <button data-pg="settings"><span class="ic">⚙️</span>设置</button>
+</nav>
+<script>
+/* ========== 数据：日程 + 卡片 ========== */
+var SCHED = {
+1:[["07:00-07:40","早读：经济概念卡 20 分钟 + 生物关键词 20 分钟"],["08:00-09:30","数学：P2 限时 45 题/75 分钟 + 对答案记错题"],["09:45-11:15","数学：P1 本周主题 LQ 5-6 题"],["11:30-12:00","错题入本（上午数学）"],["14:00-15:20","化学：本周主题讲义 + 课后题"],["15:35-16:55","生物：讲义一节 + 思维导图"],["17:00-18:00","运动 / 散步"],["19:30-21:00","经济：本周主题讲义 + 概念卡"],["21:15-22:00","复盘：三科新内容各 10 分钟"],["22:30","睡觉"]],
+2:[["07:00-07:40","预习 BIO 讲义（标不懂处）"],["08:00-09:50","数学：P1 本周主题 LQ 5-6 题"],["10:15-12:00","大课 BIO（粤语听不懂标页码）"],["13:45-14:15","预习 ECON 讲义"],["14:20-16:10","大课 ECON"],["16:30-18:00","数学：错题 / 主题剩余"],["19:30-21:00","数学一对一（带错题+讲义疑难）"],["21:15-22:00","复盘 BIO + ECON 当日内容"]],
+3:[["06:45-07:45","预习 BIO + MATH 讲义"],["08:00-09:50","大课 BIO"],["09:50-11:30","大课 MATH(a)/(b)"],["13:00-14:10","大课 MATH"],["14:10-15:40","消化两节数学（讲义+例题回看）"],["16:10-18:00","大课 CHEM"],["19:30-20:45","复盘今日 4 课 + 标疑"],["20:45-21:30","错题入本 + 预习周四讲义"],["22:00","睡觉（今天最累）"]],
+4:[["07:00-07:40","预习 CHEM 讲义"],["08:00-09:50","数学：P2 限时 or 计算类主题"],["10:15-12:00","大课 CHEM"],["13:45-14:15","预习 ECON 讲义"],["14:20-16:10","大课 ECON"],["16:30-18:30","生物一对一（9/14 起）／生物自习"],["19:30-21:00","经济一对一 / 经济 MCQ 半套"],["21:15-22:00","复盘 CHEM + ECON 当日"]],
+5:[["06:50-07:40","预习 MATH 讲义"],["08:00-09:50","大课 MATH"],["10:00-12:00","经济：MCQ 半套限时 + Diagram 3 个"],["14:00-15:30","数学：本周错题总清"],["15:45-17:15","化学一对一（9/14 起）／化学补漏"],["17:15-18:15","运动"],["19:30-21:00","生物：Essay 精写 1 题（限时 40 分钟）"],["21:15-22:00","复盘 + 明日计划"]],
+6:[["08:45-11:15","数学：P1 本周主题整段计时"],["11:30-12:00","错题入本"],["14:00-15:30","经济：LQ 模板练习 1 题（三步）"],["15:45-17:15","数学一对一（带 P1/P2 错题）"],["17:15-18:15","运动"],["19:30-21:00","本周错题清零（数学+经济）"],["21:00-21:45","预习下周数学/经济讲义"]],
+7:[["08:45-11:00","生物：本周主题收尾 + MCQ 10 题"],["11:15-12:00","生物 Essay 修改对照答案"],["14:00-15:30","化学：主题收尾 + 课后题"],["15:45-16:30","化学计算 5 题限时"],["16:30-17:30","周复盘清单 → 17:30 前交教练"],["17:30-18:30","运动"],["19:30-21:00","经济一对一 / 下周预习"],["21:00-21:45","预习化生讲义"],["22:00","收工早睡"]]
+};
+
+var WEEK_FOCUS = {
+1:"数学：二次方程与函数图像 · 经济：供求入门 · P2 首测记基线",
+2:"数学：指数对数+多项式 · 经济：弹性 · 化生一对一 9/14 启动",
+3:"数学：直线与圆 · 经济：成本 · 化生跟讲义收尾",
+4:"数学：三角 I · 经济：市场结构 · 10 月体检临近",
+5:"数学：数列 · 经济：宏观指标 · 为半程体检收口",
+6:"半程模拟体检（10/17 数经 / 10/18 化生）· 错题归因",
+7:"数学：概率统计 · 经济：货币通胀 · 体检复盘落地",
+8:"数学：微积分初步 · 经济：国际贸易 · 一轮收尾，11 月起历年卷"
+};
+
+var SUBJ_COLOR = {"数学":"var(--math)","化学":"var(--chem)","生物":"var(--bio)","经济":"var(--econ)"};
+var SUBJ_FULL = {"math":"数学","chem":"化学","bio":"生物","econ":"经济"};
+
+var CARDS = {
+"math":[
+ {q:"二次方程求根公式？根的个数怎么看？",a:"x = [−b ± √(b²−4ac)] / 2a\n判别式 Δ = b²−4ac：>0 两实根；=0 一重根；<0 无实根\n★ P2 先看 Δ 再决定要不要硬解"},
+ {q:"log 三大法则 + 换底公式",a:"log(ab) = log a + log b\nlog(a/b) = log a − log b\nlog aⁿ = n log a\n换底：log_a b = log b / log a"},
+ {q:"指数法则速记",a:"aᵐ·aⁿ = aᵐ⁺ⁿ　(aᵐ)ⁿ = aᵐⁿ\na⁰ = 1　a⁻ⁿ = 1/aⁿ　a^(1/n) = ⁿ√a"},
+ {q:"两直线垂直的斜率关系？",a:"m₁ · m₂ = −1（互相垂直）\n平行则 m₁ = m₂\n★ 见到 perpendicular 立刻写乘积 = −1"},
+ {q:"圆方程两种形式？圆心半径怎么找？",a:"标准：(x−h)² + (y−k)² = r²\n一般：x²+y²+Dx+Ey+F=0\n圆心 (−D/2, −E/2)，r = √((D/2)²+(E/2)²−F)"},
+ {q:"等差数通项 + 求和",a:"Tₙ = a + (n−1)d\nSₙ = n/2 · [2a + (n−1)d]\n= n/2 · (a + L)（L = 末项）"},
+ {q:"等比数通项 + 求和 + 无限项",a:"Tₙ = arⁿ⁻¹\nSₙ = a(1−rⁿ)/(1−r)，r≠1\n|r|<1 时 S∞ = a/(1−r)"},
+ {q:"sin²θ + cos²θ = ？ 二倍角公式？",a:"sin²θ + cos²θ = 1\ntanθ = sinθ/cosθ\nsin2θ = 2sinθcosθ\ncos2θ = cos²θ − sin²θ = 2cos²θ −1 = 1−2sin²θ"},
+ {q:"正弦定理 / 余弦定理",a:"正弦：a/sinA = b/sinB = c/sinC = 2R\n余弦：a² = b²+c² − 2bc·cosA\n★ 已知两边夹一角用余弦，知角求边用正弦"},
+ {q:"排列 vs 组合怎么分？",a:"排列 P(n,r) = n!/(n−r)!（有序）\n组合 C(n,r) = n!/[r!(n−r)!]（无序）\n★ 关键字：排 order/次序 = 排列；选 choose/组 = 组合"},
+ {q:"互斥、独立事件的概率",a:"互斥：P(A∪B) = P(A)+P(B)\n独立：P(A∩B) = P(A)·P(B)\n条件：P(A|B) = P(A∩B)/P(B)"},
+ {q:"期望与方差",a:"E(X) = Σ x·P(x)\nVar(X) = E(X²) − [E(X)]²\nσ = √Var\n★ P2 常考：先列分布表再算，别跳步"},
+ {q:"求导基础 + 切线斜率",a:"d/dx xⁿ = nxⁿ⁻¹\nd/dx (uv) 乘积法则、d/dx (u/v) 商法则\n切线斜率 = 导数在该 x 的值\n★ 切线题三步：求导 → 代入切点 → 点斜式"},
+ {q:"极值判定（最大/最小）",a:"f′(x)=0 找驻点\nf″(x)>0 → 极小；f″(x)<0 → 极大\n区间应用题还要比较端点值"},
+ {q:"复利公式",a:"A = P(1 + r/n)^(nt)\nP 本金，r 年利率，n 每年复利次数，t 年\n★ 连续复利题留意题目给的近似 e"},
+ {q:"★ P2 抢分策略",a:"1) 前 20 题 15 分钟内解决（送分题不恋战）\n2) 卡住超 90 秒先跳，最后回头\n3) 每题涂卡前核对题号\n4) 目标错 ≤8 题 = 5 级水平"}
+],
+"chem":[
+ {q:"摩尔三公式（最重要）",a:"n = m / M（质量/摩尔质量）\nn = V / 24.0 dm³（常温常压气体）\nn = C × V（浓度 mol dm⁻³ × 体积 dm³）"},
+ {q:"NA 是多少？怎么用？",a:"NA = 6.02 × 10²³ mol⁻¹\n粒子数 = n × NA\n★ 单位换算先写清楚，错一半是单位错"},
+ {q:"滴定计算套路",a:"1) 写平衡方程式（找摩尔比）\n2) n(已知) = C×V\n3) 按比例求 n(未知)\n4) 浓度 = n/V\n★ 注意体积单位 dm³ vs cm³（÷1000）"},
+ {q:"周期律：同族向下、同周期向右怎么变？",a:"同族向下：原子半径↑、电负性↓、金属性↑\n同周期向右：半径↓、电负性↑、非金属性↑\n★ 答题先写趋势再举例，白拿分"},
+ {q:"离子键 / 共价键 / 金属键速判",a:"离子键：金属 + 非金属（如 NaCl）\n共价键：非金属之间（如 H₂O）\n金属键：金属单质\n★ 判据看元素类型，不是看状态"},
+ {q:"pH 计算 + 强/弱酸区别",a:"pH = −log[H⁺]\n强酸完全电离；弱酸部分电离\n★ 弱酸 pH 不能直接用浓度当 [H⁺]"},
+ {q:"氧化还原记忆口诀",a:"OIL RIG：Oxidation Is Loss（失电子氧化）\nReduction Is Gain（得电子还原）\n氧化数升高 = 被氧化 = 还原剂"},
+ {q:"原电池 vs 电解池一句话分",a:"原电池（电池）：自发放电，化学能→电能\n电解池：外部电源驱动，电能→化学能\n★ 阳极为氧化：原电池负极 / 电解池阳极"},
+ {q:"有机物官能团命名后缀",a:"烷 -ane　烯 -ene　醇 -ol\n醛 -al　羧酸 -oic acid　酯 -oate\n★ 写结构式先找官能团再连碳链"},
+ {q:"同分异构 = ？",a:"分子式相同、结构不同\n★ 数异构体按步骤：碳链异构 → 官能团位置 → 官能团类型"},
+ {q:"Le Chatelier 平衡移动",a:"改变条件，平衡向抵消该改变的方向移动\n增压→向气体分子少的一边\n升温→向吸热方向\n★ 催化剂不移动平衡，只加速到达"},
+ {q:"反应速率影响因素（答题 4 点）",a:"1) 浓度↑ → 碰撞频率↑\n2) 温度↑ → 动能↑ 有效碰撞↑\n3) 表面积↑ → 接触↑\n4) 催化剂 → 降活化能\n★ 每题都从碰撞理论解释才拿满"},
+ {q:"ΔH 正负与吸放热",a:"ΔH < 0 放热（exothermic）\nΔH > 0 吸热（endothermic）\n★ 燃烧/中和/金属+酸 多为放热"},
+ {q:"气体测试速记",a:"O₂：带火星木条复燃\nCO₂：石灰水变浑浊\nH₂：点燃有爆鸣\nCl₂：湿润淀粉碘化钾试纸变蓝\nNH₃：湿润红色石蕊变蓝"},
+ {q:"★ 化学长题答题格式",a:"结论先行 → 方程式/计算 → 解释\n例：会生成沉淀…方程式…因为离子浓度积超 Ksp\n★ 步骤分按点给，宁可多写判断句不写废话"},
+ {q:"★ 摩尔计算检查单",a:"1) 方程式配平没？摩尔比找对没？\n2) 体积单位 dm³/cm³\n3) 有效数字跟题目\n4) 最后问的是质量/体积/浓度？别答非所问"}
+],
+"bio":[
+ {q:"细胞器功能一句话（4 个必考）",a:"粒线体：有氧呼吸产 ATP\n叶绿体：光合作用\n核糖体：蛋白质合成\n细胞膜：选择透过性屏障"},
+ {q:"扩散 / 渗透 / 主动转运区别",a:"扩散：顺浓度梯度、不需能量\n渗透：水分子过选择性透过膜\n主动转运：逆梯度、需能量(ATP)+载体\n★ 葡萄糖进细胞=协助扩散/主动，视情况"},
+ {q:"光合作用总反应 + 两阶段",a:"6CO₂ + 6H₂O →(光) C₆H₁₂O₆ + 6O₂\n光反应（类囊体）：产 ATP+NADPH+O₂\n暗反应/卡尔文循环（基质）：CO₂ 固定 → C₆H₁₂O₆"},
+ {q:"有氧呼吸总反应 + 步骤",a:"C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP\n糖酵解(细胞质) → 克雷布斯循环(粒线体基质) → 电子传递链(内膜)"},
+ {q:"酶的特性 + 失活 vs 抑制",a:"专一性、高效性、可重复使用\n高温/强酸碱 → 变性失活（永久）\n低温 → 活性降低（可逆）\n★ 最适温度/最适 pH 曲线要会画"},
+ {q:"DNA 碱基配对 + 结构",a:"A−T、G−C（氢键）\n双螺旋、磷酸-脱氧核糖骨架在外\n★ 若 A=30% 则 T=30%、G=C=20%（双链）"},
+ {q:"中心法则：转录 vs 翻译",a:"转录：DNA → mRNA（细胞核）\n翻译：mRNA → 蛋白质（核糖体，tRNA 搬运氨基酸）\n密码子 = mRNA 上 3 个碱基"},
+ {q:"孟德尔分离律一句话",a:"等位基因在形成配子时彼此分离，各配子只带一个\n★ 杂合 Aa 自交 → 表型 3:1、基因型 1:2:1"},
+ {q:"显性/隐性怎么判断（遗传题第一步）",a:"两无（正常）生有（患病）= 隐性\n两有生无 = 显性（少见）\n★ 先判显隐再标基因型，家族系谱图必用"},
+ {q:"血糖调节：胰岛素 vs 胰高血糖素",a:"血糖↑ → 胰岛素（降糖：促摄取/糖原合成）\n血糖↓ → 胰高血糖素（升糖：糖原分解）\n★ 负反馈调节，答题写完整回路"},
+ {q:"神经元传导与突触传递",a:"动作电位沿轴突传导\n突触：电信号 → 化学（神经递质）→ 电信号\n递质在突触间隙扩散、被酶分解或回收"},
+ {q:"非特异性 vs 特异性免疫",a:"非特异：皮肤/吞噬细胞/发炎（无记忆）\n特异：B 细胞→抗体（体液）；T 细胞→杀伤（细胞）\n二次应答更快更强（记忆细胞）"},
+ {q:"肾脏与渗透调节",a:"肾单位：肾小球滤过 → 肾小管重吸收\nADH↑ → 重吸收水↑ → 尿少尿浓\n★ 恒定性 homeostasis 答题套路：刺激→感受→调节→效应→恢复"},
+ {q:"★ 生物长题答题结构",a:"定义 → 机制/过程 → 联系题目数据 → 结论\n例：…因为温度升高使酶变性…所以反应速率下降\n★ 生物是英文作答：关键词拼对 + 句子完整"},
+ {q:"★ 实验设计题万能框架",a:"目的 → 假设 → 变量（自变量/因变量/控制变量）→ 对照 → 步骤 → 预测结果\n★ 控制变量写具体：同种、同龄、同量…"},
+ {q:"★ 生态题高频点",a:"能量沿食物链单向流动、逐级递减（10%）\n碳循环：光合固定 / 呼吸释放 / 化石燃料\n★ 写箭头：生产者→消费者，方向别画反"}
+],
+"econ":[
+ {q:"Scarcity → Choice → Opportunity Cost",a:"稀缺性迫使选择；选择的代价 = 放弃的最高价值选项\n★ 机会成本不是所有放弃的加总，是最高那一个"},
+ {q:"Demand 与 Supply 的移动 vs 沿曲线",a:"价格变 → 沿曲线移动（quantity demanded/supplied）\n其他因素变 → 整条曲线移动（demand/supply）\n★ 答方向题先判断是移动还是滑动"},
+ {q:"均衡价格：短缺与盈余",a:"P 高于均衡 → 盈余（supply 过剩）→ 价格↓\nP 低于均衡 → 短缺 → 价格↑\n★ 画图：交点就是均衡，先画图再写字"},
+ {q:"PED 公式 + 与总收益关系",a:"PED = %ΔQd / %ΔP（取绝对值）\n|PED|>1 弹性大：降价→总收益↑\n|PED|<1 缺乏弹性：降价→总收益↓\n★ 必需品/无替代/占比小 → 缺乏弹性"},
+ {q:"消费者盈余与生产者盈余",a:"CS = 愿付价 − 实付价（需求曲线下、价格线上）\nPS = 实收价 − 愿收价（价格线下、供给曲线上）\n★ 征税/价格管制后，两盈余变化是 DSE 爱考图"},
+ {q:"固定成本 vs 可变成本",a:"FC：不随产量变（租金）\nVC：随产量变（原材料）\nTC = FC + VC；AC = TC/Q\n★ 短期的概念，长期没有固定成本"},
+ {q:"规模经济（Economies of Scale）",a:"产量↑ → 平均成本↓ 的原因：专业化分工、大批量采购折扣、技术设备\n★ 与规模不经济（管理困难）成对考"},
+ {q:"完全竞争 vs 垄断 关键差异",a:"完全竞争：价格接受者（price taker）、自由进出、长期零经济利润\n垄断：价格制定者、有进入壁垒、可长期赚经济利润\n★ MC=MR 是两者共同的利润最大化条件"},
+ {q:"外部性 + 政府对策",a:"负外部性（污染）：私人成本 < 社会成本 → 产量过多\n对策：庇古税 / 配额 / 规管\n正外部性（教育）：补贴 / 政府提供"},
+ {q:"GDP 是什么？（必背定义）",a:"GDP = 本地生产总值：某时期内本地生产的所有最终货物与服务的市场总值\n★ 注意：最终品不重复计中间品；二手货不计；只计本地生产"},
+ {q:"CPI 通胀怎么算",a:"CPI = (当期一篮子价格 / 基期价格) × 100\n通胀率 = (CPI当期 − CPI前期)/CPI前期 × 100%\n★ 一篮子固定，权重按消费占比"},
+ {q:"失业类型 3 种",a:"摩擦性：转工间隙\n结构性：技能与职位不匹配\n周期性：经济下行需求不足\n★ 自然失业率 = 摩擦 + 结构"},
+ {q:"AD-AS 宏观均衡",a:"AD 下倾（消费/投资/政府/净出口）\nAS 上倾；LRAS 垂直（潜在产出）\n★ 财政政策移动 AD：减税/增支 → AD 右移"},
+ {q:"财政政策 vs 货币政策",a:"财政：政府税收 + 支出（预算案）\n货币：金管局调整利率/货币供应\n★ 答政策题：写工具 → 写对 AD 影响 → 写对产出物价影响"},
+ {q:"比较优势与自由贸易",a:"比较优势：机会成本较低的一方生产该品\n贸易利益：两国按比较优势分工 → 总产量↑双方受益\n★ 先算机会成本再下结论"},
+ {q:"汇率升/贬值的影响",a:"本币升值：进口便宜、出口变贵（净出口↓）\n本币贬值：出口竞争力↑、进口贵（或通胀压力）\n★ 联系旅游业/留学的例子最好答"},
+ {q:"★ 经济答题三步模板（必用）",a:"Definition（定义术语）→ Explanation（解释机制）→ Diagram/Example（画图或举例）\n★ 长题每问都按三步走，结构分稳拿"},
+ {q:"★ Diagram 必画清单",a:"供求均衡、PED 与总收益、税收负担分摊、价格上限/下限、外部性、AD-AS、汇率\n★ 每周画熟 3 个，考试直接默写"}
+]
+};
+</script>
+<script>
+/* ========== 应用逻辑 ========== */
+function $(id){return document.getElementById(id)}
+function ls(k,d){try{var v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}}
+function ss(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+
+/* tab */
+var pages=["today","cards","mistakes","review","settings"];
+document.querySelectorAll(".tabbar button").forEach(function(b){
+  b.addEventListener("click",function(){
+    var pg=b.getAttribute("data-pg");
+    pages.forEach(function(p){document.getElementById("pg-"+p).classList.remove("on")});
+    document.getElementById("pg-"+pg).classList.add("on");
+    document.querySelectorAll(".tabbar button").forEach(function(x){x.classList.remove("on")});
+    b.classList.add("on");
+    if(pg==="mistakes")renderMistakes();
+    if(pg==="cards")initCards();
+  });
+});
+
+/* 今日 */
+function renderToday(){
+  var d=new Date().getDay(); // 0 Sun
+  var idx=d===0?7:d;
+  var names=["周日","周一","周二","周三","周四","周五","周六"];
+  $("dayName").textContent=names[d];
+  var slots=SCHED[idx]||[];
+  var html="";
+  slots.forEach(function(s){
+    var tag="";
+    if(/大课/.test(s[1]))tag='<span class="pill" style="background:var(--accent)">大课</span>';
+    else if(/一对一/.test(s[1]))tag='<span class="pill" style="background:var(--accent2)">1对1</span>';
+    else if(/预习/.test(s[1]))tag='<span class="pill" style="background:#64748b">预习</span>';
+    else if(/复盘|错题|清零/.test(s[1]))tag='<span class="pill" style="background:#9333ea">整理</span>';
+    else if(/运动|散步/.test(s[1]))tag='<span class="pill" style="background:#16a34a">运动</span>';
+    html+='<div class="slot"><span class="tm">'+s[0]+'</span><span class="tx">'+tag+' '+s[1]+'</span></div>';
+  });
+  $("todaySlots").innerHTML=html;
+  /* 三件套状态 */
+  var dk=dateKey();
+  ["t1","t2","t3"].forEach(function(k){
+    var el=document.querySelector('.chk[data-k="'+k+'"]');
+    el.checked=!!ls("sd_chk_"+dk+"_"+k,false);
+  });
+}
+function dateKey(){var d=new Date();return d.getFullYear()+"-"+((d.getMonth()+1)<10?"0":"")+(d.getMonth()+1)+"-"+(d.getDate()<10?"0":"")+d.getDate()}
+document.querySelectorAll(".chk").forEach(function(c){
+  c.addEventListener("change",function(){
+    var dk=dateKey();var k=c.getAttribute("data-k");
+    ss("sd_chk_"+dk+"_"+k,c.checked);
+  });
+});
+function renderWeek(){
+  var w=ls("sd_week",1);
+  $("wtag").textContent="第 "+w+" 周（9/7 起）";
+  $("weekFocus").textContent=WEEK_FOCUS[w]?("W"+w+"："+WEEK_FOCUS[w]):"设置页可调整周数";
+}
+document.querySelectorAll('.chk').length; // noop
+
+/* 闪卡 */
+var curSubj="math";
+var deckOrder=[];   // 当轮顺序（卡 index 数组）
+var deckPos=0;
+function buildOrder(){
+  var n=CARDS[curSubj].length;
+  var prog=ls("sd_prog_"+curSubj,{});
+  var again=[],unknown=[],known=[];
+  for(var i=0;i<n;i++){
+    if(prog[i]==="know")known.push(i);
+    else if(prog[i]==="again")again.push(i);
+    else unknown.push(i);
+  }
+  return again.concat(unknown,known);
+}
+function initCards(){
+  var row=$("subjRow");row.innerHTML="";
+  Object.keys(SUBJ_FULL).forEach(function(k){
+    var b=document.createElement("div");
+    b.className="subj-btn"+(k===curSubj?" on":"");
+    b.style.setProperty("--sc",SUBJ_COLOR[SUBJ_FULL[k]]);
+    b.innerHTML="<span>"+SUBJ_FULL[k]+"</span><small>"+CARDS[k].length+" 张</small>";
+    b.addEventListener("click",function(){curSubj=k;initCards();showCard();});
+    row.appendChild(b);
+  });
+  deckOrder=buildOrder();deckPos=0;showCard();
+  var prog=ls("sd_prog_"+curSubj,{});
+  var n=CARDS[curSubj].length,kn=0;for(var i in prog){if(prog[i]==="know")kn++}
+  $("knowCnt").textContent=kn;
+  $("queueCnt").textContent=n-kn;
+  $("progBar").style.width=Math.round(kn/n*100)+"%";
+  $("cardMeta").textContent=SUBJ_FULL[curSubj]+" · "+curSubjCardLabel();
+}
+function curSubjCardLabel(){var prog=ls("sd_prog_"+curSubj,{});var n=CARDS[curSubj].length,kn=0;for(var i in prog){if(prog[i]==="know")kn++}return "已掌握 "+kn+"/"+n}
+function showCard(){
+  var f=$("flash");f.classList.remove("show");
+  if(deckOrder.length===0){$("qText").textContent="卡组已清空？点下方重置本科重新来";$("aText").textContent="";$("cardTag").textContent=SUBJ_FULL[curSubj];return}
+  if(deckPos>=deckOrder.length)deckPos=0;
+  var idx=deckOrder[deckPos];
+  var c=CARDS[curSubj][idx];
+  $("qText").textContent=c.q;
+  $("aText").textContent=c.a;
+  var t=SUBJ_FULL[curSubj];
+  if(c.q.indexOf("★")===0){t="★ 技巧"}else if(c.a.indexOf("★")===0){t="★ 技巧"}
+  $("cardTag").textContent=t;
+  $("cardTag").style.background=SUBJ_COLOR[SUBJ_FULL[curSubj]];
+}
+$("flash").addEventListener("click",function(){this.classList.toggle("show");$("sideLbl").textContent=this.classList.contains("show")?"答案":"问题"});
+$("btnFlip").addEventListener("click",function(){$("flash").classList.toggle("show");$("sideLbl").textContent=$("flash").classList.contains("show")?"答案":"问题"});
+function markCard(v){
+  if(deckOrder.length===0)return;
+  var idx=deckOrder[deckPos];
+  var prog=ls("sd_prog_"+curSubj,{});
+  if(v==="know"){prog[idx]="know";deckOrder.splice(deckPos,1)}
+  else{prog[idx]="again";deckPos++}
+  ss("sd_prog_"+curSubj,prog);
+  if(deckPos>=deckOrder.length)deckPos=0;
+  var n=CARDS[curSubj].length,kn=0;for(var i in prog){if(prog[i]==="know")kn++}
+  $("knowCnt").textContent=kn;$("queueCnt").textContent=n-kn;
+  $("progBar").style.width=Math.round(kn/n*100)+"%";
+  $("cardMeta").textContent=SUBJ_FULL[curSubj]+" · 已掌握 "+kn+"/"+n;
+  showCard();
+}
+$("btnKnow").addEventListener("click",function(){markCard("know")});
+$("btnAgain").addEventListener("click",function(){markCard("again")});
+$("btnResetSubj").addEventListener("click",function(){if(confirm("重置"+SUBJ_FULL[curSubj]+"全部卡进度？")){localStorage.removeItem("sd_prog_"+curSubj);initCards();}});
+
+/* 错题 */
+var mkFilter="全部";
+function renderMistakes(){
+  var list=ls("sd_mistakes",[]);
+  if(mkFilter!=="全部")list=list.filter(function(m){return m.subj===mkFilter});
+  $("mkCount").textContent=list.length+" 条";
+  var f=$("mkFilter");f.innerHTML="";
+  ["全部","数学","化学","生物","经济"].forEach(function(s){
+    var b=document.createElement("span");
+    b.className="badge";b.style.cursor="pointer";
+    b.style.background=(mkFilter===s)?"#1e293b":"#eef1f6";
+    b.style.color=(mkFilter===s)?"#fff":"#5b6472";
+    b.textContent=s;
+    b.addEventListener("click",function(){mkFilter=s;renderMistakes()});
+    f.appendChild(b);
+  });
+  var ul=$("mkList");ul.innerHTML="";
+  list.forEach(function(m,i){
+    var li=document.createElement("li");
+    var col=SUBJ_COLOR[m.subj]||"#64748b";
+    var d=m.date||"";
+    li.innerHTML='<span class="mk-tag" style="background:'+col+'">'+m.subj+'</span><span><b>'+m.why+'</b> · '+m.note+'<br><span class="muted" style="font-size:10px">'+d+'</span></span><button class="del" data-i="'+i+'">✕</button>';
+    ul.appendChild(li);
+  });
+  $("mkEmpty").style.display=list.length?"none":"block";
+  ul.querySelectorAll(".del").forEach(function(b){
+    b.addEventListener("click",function(){
+      var all=ls("sd_mistakes",[]);
+      var orig=mkFilter!=="全部";
+      var realIdx=b.getAttribute("data-i");
+      var idx=0,cnt=0;
+      // find real index in full list
+      var full=ls("sd_mistakes",[]);
+      var filtered=full.filter(function(m){return mkFilter==="全部"||m.subj===mkFilter});
+      var target=filtered[parseInt(realIdx,10)];
+      var ri=full.indexOf(target);
+      if(ri>-1)full.splice(ri,1);
+      ss("sd_mistakes",full);
+      renderMistakes();
+    });
+  });
+}
+$("mkAdd").addEventListener("click",function(){
+  var note=$("mkNote").value.trim();
+  if(!note){alert("写一句知识点再入本");return}
+  var list=ls("sd_mistakes",[]);
+  var d=new Date();
+  var ds=d.getMonth()+1+"/"+d.getDate();
+  list.unshift({subj:$("mkSubj").value,why:$("mkWhy").value,note:note,date:ds});
+  ss("sd_mistakes",list);
+  $("mkNote").value="";
+  renderMistakes();
+});
+
+/* 复盘 */
+$("rvGen").addEventListener("click",function(){
+  var w=ls("sd_week",1);
+  var t="【第 "+w+" 周复盘 · "+(new Date().getMonth()+1)+"/"+new Date().getDate()+"】\n"
+    +"1. 本周进度："+($("rv1").value.trim()||"—")+"\n"
+    +"2. 错题统计："+($("rv2").value.trim()||"—")+"\n"
+    +"3. 下周调整："+($("rv3").value.trim()||"—")+"\n"
+    +"4. 一句话自评："+($("rv4").value.trim()||"—");
+  $("rvOut").value=t;
+});
+
+/* 设置 */
+$("weekNo").value=ls("sd_week",1);
+$("btnApplyWeek").addEventListener("click",function(){
+  var v=parseInt($("weekNo").value,10);
+  if(v>=1&&v<=40){ss("sd_week",v);renderWeek();alert("已设为第 "+v+" 周")}
+  else alert("输入 1-40");
+});
+$("btnResetAll").addEventListener("click",function(){
+  if(confirm("确定清空全部学习数据？此操作不可恢复。")){
+    var ks=[];
+    for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k.indexOf("sd_")===0)ks.push(k)}
+    ks.forEach(function(k){localStorage.removeItem(k)});
+    location.reload();
+  }
+});
+
+/* init */
+renderWeek();renderToday();
+</script>
+</body>
+</html>
