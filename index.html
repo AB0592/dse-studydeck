@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>DSE 理科冲刺台 · Sunmay</title>
+<title>DSE 理科衝刺台 · Sunmay</title>
 <style>
   :root{
     --bg:#f4f6fb; --card:#ffffff; --ink:#1c2333; --sub:#5b6472;
@@ -74,8 +74,8 @@
 <body>
 <div class="app">
   <header>
-    <h1>DSE 理科冲刺台</h1>
-    <div class="sub">Sunmay · 2027 重考 · 数学/化学/生物/经济</div>
+    <h1>DSE 理科衝刺台</h1>
+    <div class="sub">Sunmay · 2027 重考 · 數學/化學/生物/經濟</div>
     <div><span class="wtag" id="wtag">第 W 周</span> <span class="wtag" id="todayTag"></span></div>
   </header>
 
@@ -87,59 +87,59 @@
     </div>
     <div class="panel">
       <h2><span class="dot" style="background:var(--ok)"></span>今日三件套</h2>
-      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-bottom:6px"><input type="checkbox" class="chk" data-k="t1" style="width:auto;margin-top:2px"><span>大课当日消化（疑问清单不过夜）</span></label>
-      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-bottom:6px"><input type="checkbox" class="chk" data-k="t2" style="width:auto;margin-top:2px"><span>错题入本 ≥ 3 条</span></label>
-      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px"><input type="checkbox" class="chk" data-k="t3" style="width:auto;margin-top:2px"><span>运动 30 分钟</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-bottom:6px"><input type="checkbox" class="chk" data-k="t1" style="width:auto;margin-top:2px"><span>大課當日消化（疑問清單不過夜）</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-bottom:6px"><input type="checkbox" class="chk" data-k="t2" style="width:auto;margin-top:2px"><span>錯題入本 ≥ 3 條</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px"><input type="checkbox" class="chk" data-k="t3" style="width:auto;margin-top:2px"><span>運動 30 分鐘</span></label>
     </div>
     <div class="panel">
-      <h2><span class="dot" style="background:var(--accent2)"></span>碎片时间仪式（每天固定 · 共约 25-35 分钟）</h2>
-      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-bottom:6px"><input type="checkbox" class="chk" data-k="t4" style="width:auto;margin-top:2px"><span><b>早读后</b>：经济闪卡 10 分钟</span></label>
-      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-bottom:6px"><input type="checkbox" class="chk" data-k="t5" style="width:auto;margin-top:2px"><span><b>午膳后 / 放学后 ×1-2 次</b>：当天大课科目卡 5 分钟（今天上化学就刷化学，趁记忆最新鲜）</span></label>
-      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px"><input type="checkbox" class="chk" data-k="t6" style="width:auto;margin-top:2px"><span><b>睡前</b>：登记今日错题 + 清「再练」队列 10 分钟</span></label>
-      <div class="muted" style="margin-top:8px;font-size:11px">闪卡纪律：看题 → 3 秒默答 → 翻面核对；想不出就点「再练」<br>不占整块时间——刷题用纸笔，闪卡只锁记忆</div>
+      <h2><span class="dot" style="background:var(--accent2)"></span>碎片時間儀式（每天固定 · 共約 25-35 分鐘）</h2>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-bottom:6px"><input type="checkbox" class="chk" data-k="t4" style="width:auto;margin-top:2px"><span><b>早讀後</b>：經濟閃卡 10 分鐘</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-bottom:6px"><input type="checkbox" class="chk" data-k="t5" style="width:auto;margin-top:2px"><span><b>午膳後 / 放學後 ×1-2 次</b>：當天大課科目卡 5 分鐘（今天上化學就刷化學，趁記憶最新鮮）</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px"><input type="checkbox" class="chk" data-k="t6" style="width:auto;margin-top:2px"><span><b>睡前</b>：登記今日錯題 + 清「再練」隊列 10 分鐘</span></label>
+      <div class="muted" style="margin-top:8px;font-size:11px">閃卡紀律：看題 → 3 秒默答 → 翻面核對；想不出就點「再練」<br>不佔整塊時間——刷題用紙筆，閃卡只鎖記憶</div>
     </div>
     <div class="panel">
-      <h2><span class="dot" style="background:var(--accent2)"></span>本周目标速览</h2>
+      <h2><span class="dot" style="background:var(--accent2)"></span>本週目標速覽</h2>
       <div class="muted" id="weekFocus"></div>
     </div>
   </div>
 
-  <!-- 闪卡 -->
+  <!-- 閃卡 -->
   <div class="page" id="pg-cards">
     <div class="panel">
-      <h2><span class="dot" style="background:var(--accent)"></span>科目卡组</h2>
+      <h2><span class="dot" style="background:var(--accent)"></span>科目卡組</h2>
       <div class="subject-row" id="subjRow"></div>
       <div class="cnt" id="cardMeta"></div>
       <div class="flash-wrap">
         <div class="flash" id="flash">
-          <span class="side" id="sideLbl">问题</span>
-          <span class="tag" id="cardTag">数学</span>
+          <span class="side" id="sideLbl">問題</span>
+          <span class="tag" id="cardTag">數學</span>
           <div class="q" id="qText"></div>
           <div class="a" id="aText"></div>
           <div class="explain" id="explainText" style="display:none;margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;color:#1e3a5f;background:#eef6ff;border-radius:10px;padding:10px;white-space:pre-wrap"></div>
-          <button class="btn ghost" id="btnExplain" style="display:none;margin-top:10px;width:100%;font-size:12px;background:#e0edff;color:#1e40af">📖 想看原理讲解？</button>
+          <button class="btn ghost" id="btnExplain" style="display:none;margin-top:10px;width:100%;font-size:12px;background:#e0edff;color:#1e40af">📖 想看原理講解？</button>
         </div>
       </div>
       <div class="btn-row">
-        <button class="btn r" id="btnAgain">再练</button>
-        <button class="btn g" id="btnKnow">记住了</button>
+        <button class="btn r" id="btnAgain">再練</button>
+        <button class="btn g" id="btnKnow">記住了</button>
       </div>
       <div class="btn-row">
         <button class="btn ghost" id="btnFlip" style="flex:1">翻面看答案</button>
         <button class="btn ghost" id="btnResetSubj" style="flex:0 0 100px">重置本科</button>
       </div>
       <div class="btn-row">
-        <button class="btn ghost" id="btnAsk" style="width:100%;color:#b91c1c;background:#fdecec">🤔 还不懂？加入待讲解清单（周复盘发教练 = 下次更新有讲解）</button>
+        <button class="btn ghost" id="btnAsk" style="width:100%;color:#b91c1c;background:#fdecec">🤔 還不懂？加入待講解清單（周覆盤發教練 = 下次更新有講解）</button>
       </div>
-      <div class="cnt"><span id="knowCnt">0</span> 已掌握 / 复习队列 <span id="queueCnt">0</span></div>
+      <div class="cnt"><span id="knowCnt">0</span> 已掌握 / 複習隊列 <span id="queueCnt">0</span></div>
       <div class="bar"><i id="progBar"></i></div>
-      <div class="cnt muted" style="font-size:11px">🔥陷阱 = DSE 易错坑（审题/计算/概念）｜📐技巧 = 答题套路（模板/信号词）｜无标 = 必背基础<br>复习顺序：先刷 🔥 和 📐，再滚基础卡</div>
-      <div class="btn ghost" id="btnAddCard" style="text-align:center;margin-top:10px">➕ 加卡（把常错的点做成新卡）</div>
+      <div class="cnt muted" style="font-size:11px">🔥陷阱 = DSE 易錯坑（審題/計算/概念）｜📐技巧 = 答題套路（模板/信號詞）｜無標 = 必背基礎<br>複習順序：先刷 🔥 和 📐，再滾基礎卡</div>
+      <div class="btn ghost" id="btnAddCard" style="text-align:center;margin-top:10px">➕ 加卡（把常錯的點做成新卡）</div>
       <div id="addCardBox" style="display:none;margin-top:10px;background:#f7f8fc;border:1px dashed var(--line);border-radius:12px;padding:12px">
-        <div class="fld"><label>科目</label><select id="acSubj"><option value="math">数学</option><option value="chem">化学</option><option value="bio">生物</option><option value="econ">经济</option></select></div>
-        <div class="fld"><label>类型</label><select id="acType"><option value="base">必背基础</option><option value="trap">🔥 陷阱（易错坑）</option><option value="skill">📐 技巧（答题套路）</option></select></div>
-        <div class="fld"><label>问题（正面）</label><input id="acQ" placeholder="例：等比数列公比 r 的范围？"></div>
-        <div class="fld"><label>答案（背面）</label><textarea id="acA" placeholder="例：|r| < 1 才有无穷项和…"></textarea></div>
+        <div class="fld"><label>科目</label><select id="acSubj"><option value="math">數學</option><option value="chem">化學</option><option value="bio">生物</option><option value="econ">經濟</option></select></div>
+        <div class="fld"><label>類型</label><select id="acType"><option value="base">必背基礎</option><option value="trap">🔥 陷阱（易錯坑）</option><option value="skill">📐 技巧（答題套路）</option></select></div>
+        <div class="fld"><label>問題（正面）</label><input id="acQ" placeholder="例：等比數列公比 r 的範圍？"></div>
+        <div class="fld"><label>答案（背面）</label><textarea id="acA" placeholder="例：|r| < 1 才有無窮項和…"></textarea></div>
         <div class="btn-row">
           <button class="btn g" id="acSave" style="flex:1">保存</button>
           <button class="btn ghost" id="acCancel" style="flex:1">取消</button>
@@ -149,233 +149,264 @@
     </div>
   </div>
 
-  <!-- 错题 -->
+  <!-- 錯題 -->
   <div class="page" id="pg-mistakes">
     <div class="panel">
-      <h2><span class="dot" style="background:var(--warn)"></span>登记错题（30 秒）</h2>
-      <div class="fld"><label>科目</label><select id="mkSubj"><option>数学</option><option>化学</option><option>生物</option><option>经济</option></select></div>
-      <div class="fld"><label>错因（选主要的一项）</label><select id="mkWhy"><option>概念不清</option><option>计算失误</option><option>审题偏差</option><option>答题结构/表述</option><option>时间不够</option></select></div>
-      <div class="fld"><label>知识点 / 一句话</label><input id="mkNote" placeholder="例：等比数列求和公式 r=1 特例"></div>
+      <h2><span class="dot" style="background:var(--warn)"></span>登記錯題（30 秒）</h2>
+      <div class="fld"><label>科目</label><select id="mkSubj"><option>數學</option><option>化學</option><option>生物</option><option>經濟</option></select></div>
+      <div class="fld"><label>錯因（選主要的一項）</label><select id="mkWhy"><option>概念不清</option><option>計算失誤</option><option>審題偏差</option><option>答題結構/表述</option><option>時間不夠</option></select></div>
+      <div class="fld"><label>知識點 / 一句話</label><input id="mkNote" placeholder="例：等比數列求和公式 r=1 特例"></div>
       <div class="btn b" id="mkAdd" style="text-align:center">入本</div>
     </div>
     <div class="panel">
-      <h2><span class="dot" style="background:var(--warn)"></span>错题本 <span style="margin-left:auto;font-weight:400" id="mkCount"></span></h2>
+      <h2><span class="dot" style="background:var(--warn)"></span>錯題本 <span style="margin-left:auto;font-weight:400" id="mkCount"></span></h2>
       <div style="display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap" id="mkFilter"></div>
       <ul class="mk-list" id="mkList"></ul>
-      <div class="empty" id="mkEmpty" style="display:none">还没有错题。今天开始记第一条？</div>
+      <div class="empty" id="mkEmpty" style="display:none">還沒有錯題。今天開始記第一條？</div>
     </div>
   </div>
 
-  <!-- 复盘 -->
+  <!-- 覆盤 -->
   <div class="page" id="pg-review">
     <div class="panel">
-      <h2><span class="dot" style="background:var(--accent2)"></span>周日复盘清单（17:00 前交教练）</h2>
-      <div class="fld"><label>1. 本周进度（大课消化 OK？各科主题到哪？）</label><textarea id="rv1" placeholder="例：数学 W1 二次函数完成，P2 首测错 11 题…"></textarea></div>
-      <div class="fld"><label>2. 错题统计（总数 / 高频错因）</label><textarea id="rv2" placeholder="例：共 14 条，数学计算失误 6 条最扎眼…"></textarea></div>
-      <div class="fld"><label>3. 下周调整（继续 / 停止 / 开始什么）</label><textarea id="rv3" placeholder="例：周三 4 大课太累，晚自习改早睡…"></textarea></div>
-      <div class="fld"><label>4. 一句话自评</label><input id="rv4" placeholder="例：本周粤语课跟得上 60%，疑问都当天清了"></div>
+      <h2><span class="dot" style="background:var(--accent2)"></span>週日覆盤清單（17:00 前交教練）</h2>
+      <div class="fld"><label>1. 本週進度（大課消化 OK？各科主題到哪？）</label><textarea id="rv1" placeholder="例：數學 W1 二次函數完成，P2 首測錯 11 題…"></textarea></div>
+      <div class="fld"><label>2. 錯題統計（總數 / 高頻錯因）</label><textarea id="rv2" placeholder="例：共 14 條，數學計算失誤 6 條最扎眼…"></textarea></div>
+      <div class="fld"><label>3. 下週調整（繼續 / 停止 / 開始什麼）</label><textarea id="rv3" placeholder="例：週三 4 大課太累，晚自習改早睡…"></textarea></div>
+      <div class="fld"><label>4. 一句話自評</label><input id="rv4" placeholder="例：本週粵語課跟得上 60%，疑問都當天清了"></div>
       <div class="muted" style="margin:4px 0 8px" id="askHint"></div>
-      <div class="btn o" id="rvGen" style="text-align:center">生成复盘文本（含待讲解清单）</div>
-      <div class="btn ghost" id="rvClearAsk" style="text-align:center;margin-top:6px;color:var(--warn)">🗑 清空待讲解清单（教练讲完后）</div>
-      <textarea class="copyout" id="rvOut" readonly placeholder="点上方生成后，全选复制发给教练"></textarea>
+      <div class="btn o" id="rvGen" style="text-align:center">生成覆盤文本（含待講解清單）</div>
+      <div class="btn ghost" id="rvClearAsk" style="text-align:center;margin-top:6px;color:var(--warn)">🗑 清空待講解清單（教練講完後）</div>
+      <textarea class="copyout" id="rvOut" readonly placeholder="點上方生成後，全選複製發給教練"></textarea>
     </div>
   </div>
 
-  <!-- 设置 -->
+  <!-- 設置 -->
   <div class="page" id="pg-settings">
     <div class="panel">
-      <h2><span class="dot" style="background:var(--sub)"></span>目标（记住为什么拼）</h2>
-      <div class="goal-line"><b>数学</b> 4 → 5* <span class="muted">（主战场 17h/周）</span></div>
-      <div class="goal-line"><b>化学</b> 4 → 5*</div>
+      <h2><span class="dot" style="background:var(--sub)"></span>目標（記住為什麼拼）</h2>
+      <div class="goal-line"><b>數學</b> 4 → 5* <span class="muted">（主戰場 17h/周）</span></div>
+      <div class="goal-line"><b>化學</b> 4 → 5*</div>
       <div class="goal-line"><b>生物</b> 4 → 5*</div>
-      <div class="goal-line"><b>经济</b> 2 → 5 <span class="muted">（最大增量）</span></div>
-      <div class="muted">best5 20 → 26+ · 港三大理学类 · 四科全中文卷作答</div>
+      <div class="goal-line"><b>經濟</b> 2 → 5 <span class="muted">（最大增量）</span></div>
+      <div class="muted">best5 20 → 26+ · 港三大理學類 · 四科全中文卷作答</div>
     </div>
     <div class="panel">
-      <h2><span class="dot" style="background:var(--sub)"></span>当前进度周</h2>
-      <div class="settings-line">本周是第几周（W1 = 9/7 起）<input type="number" id="weekNo" min="1" max="40" style="width:70px"></div>
-      <button class="btn ghost" id="btnApplyWeek" style="width:100%">应用</button>
-      <div class="muted" style="margin-top:8px">W6（10/17-18）= 第一次半程模拟体检</div>
+      <h2><span class="dot" style="background:var(--sub)"></span>當前進度周</h2>
+      <div class="settings-line">本週是第幾周（W1 = 9/7 起）<input type="number" id="weekNo" min="1" max="40" style="width:70px"></div>
+      <button class="btn ghost" id="btnApplyWeek" style="width:100%">應用</button>
+      <div class="muted" style="margin-top:8px">W6（10/17-18）= 第一次半程模擬體檢</div>
     </div>
     <div class="panel">
-      <h2><span class="dot" style="background:var(--sub)"></span>使用说明</h2>
-      <div class="muted"><b>每日口诀：早读经济 · 午膳刷卡 · 睡前清队 · 周末清仓</b><br>
-· 早读后 10 分钟：刷经济卡（概念密集靠背）<br>
-· 午膳后或放学后 5-10 分钟：今天上哪科大课就刷哪科（学完即锁，趁热记）<br>
-· 睡前 10 分钟：登记错题 + 清「再练」队列<br>
-· 周末 30 分钟：清空本周「再练」，清不空 = 记忆欠账写进周复盘<br>
-· 数学卡每周至少完整过 1 次（周一早读后专刷 15 分钟）<br>
-· 闪卡纪律：看题 → 3 秒默答 → 翻面核对；想不出点「再练」<br>
-· 卡类型：🔥陷阱（易错坑）→ 📐技巧（答题套路）→ 无标（必背基础），先刷 🔥📐<br>
-· 加卡：闪卡页点「➕ 加卡」，把自己常错的点做成新卡<br>
-· 数据存在本机浏览器，清除浏览记录会丢</div>
+      <h2><span class="dot" style="background:var(--sub)"></span>使用説明</h2>
+      <div class="muted"><b>每日口訣：早讀經濟 · 午膳刷卡 · 睡前清隊 · 週末清倉</b><br>
+· 早讀後 10 分鐘：刷經濟卡（概念密集靠背）<br>
+· 午膳後或放學後 5-10 分鐘：今天上哪科大課就刷哪科（學完即鎖，趁熱記）<br>
+· 睡前 10 分鐘：登記錯題 + 清「再練」隊列<br>
+· 週末 30 分鐘：清空本週「再練」，清不空 = 記憶欠賬寫進周覆盤<br>
+· 數學卡每週至少完整過 1 次（週一早讀後專刷 15 分鐘）<br>
+· 閃卡紀律：看題 → 3 秒默答 → 翻面核對；想不出點「再練」<br>
+· 卡類型：🔥陷阱（易錯坑）→ 📐技巧（答題套路）→ 無標（必背基礎），先刷 🔥📐<br>
+· 加卡：閃卡頁點「➕ 加卡」，把自己常錯的點做成新卡<br>
+· 數據存在本機瀏覽器，清除瀏覽記錄會丟</div>
     </div>
     <div class="panel">
-      <button class="btn ghost" id="btnResetAll" style="width:100%;color:var(--warn)">重置全部数据（慎用）</button>
+      <button class="btn ghost" id="btnResetAll" style="width:100%;color:var(--warn)">重置全部數據（慎用）</button>
     </div>
   </div>
 </div>
 
 <nav class="tabbar">
   <button data-pg="today" class="on"><span class="ic">📋</span>今日</button>
-  <button data-pg="cards"><span class="ic">🃏</span>闪卡</button>
-  <button data-pg="mistakes"><span class="ic">📌</span>错题</button>
-  <button data-pg="review"><span class="ic">📝</span>复盘</button>
-  <button data-pg="settings"><span class="ic">⚙️</span>设置</button>
+  <button data-pg="cards"><span class="ic">🃏</span>閃卡</button>
+  <button data-pg="mistakes"><span class="ic">📌</span>錯題</button>
+  <button data-pg="review"><span class="ic">📝</span>覆盤</button>
+  <button data-pg="settings"><span class="ic">⚙️</span>設置</button>
 </nav>
 <script>
-/* ========== 数据：日程 + 卡片 ========== */
+/* ========== 數據：日程 + 卡片 ========== */
 var SCHED = {
-1:[["07:00-07:40","早读：经济概念卡 20 分钟 + 生物关键词 20 分钟"],["08:00-09:30","数学：P2 限时 45 题/75 分钟 + 对答案记错题"],["09:45-11:15","数学：P1 本周主题 LQ 5-6 题"],["11:30-12:00","错题入本（上午数学）"],["14:00-15:20","化学：本周主题讲义 + 课后题"],["15:35-16:55","生物：讲义一节 + 思维导图"],["17:00-18:00","运动 / 散步"],["19:30-21:00","经济：本周主题讲义 + 概念卡"],["21:15-22:00","复盘：三科新内容各 10 分钟"],["22:30","睡觉"]],
-2:[["07:00-07:40","预习 BIO 讲义（标不懂处）"],["08:00-09:50","数学：P1 本周主题 LQ 5-6 题"],["10:15-12:00","大课 BIO（粤语听不懂标页码）"],["13:45-14:15","预习 ECON 讲义"],["14:20-16:10","大课 ECON"],["16:30-18:00","数学：错题 / 主题剩余"],["19:30-21:00","数学一对一（带错题+讲义疑难）"],["21:15-22:00","复盘 BIO + ECON 当日内容"]],
-3:[["06:45-07:45","预习 BIO + MATH 讲义"],["08:00-09:50","大课 BIO"],["09:50-11:30","大课 MATH(a)/(b)"],["13:00-14:10","大课 MATH"],["14:10-15:40","消化两节数学（讲义+例题回看）"],["16:10-18:00","大课 CHEM"],["19:30-20:45","复盘今日 4 课 + 标疑"],["20:45-21:30","错题入本 + 预习周四讲义"],["22:00","睡觉（今天最累）"]],
-4:[["07:00-07:40","预习 CHEM 讲义"],["08:00-09:50","数学：P2 限时 or 计算类主题"],["10:15-12:00","大课 CHEM"],["13:45-14:15","预习 ECON 讲义"],["14:20-16:10","大课 ECON"],["16:30-18:30","生物一对一（9/14 起）／生物自习"],["19:30-21:00","经济一对一 / 经济 MCQ 半套"],["21:15-22:00","复盘 CHEM + ECON 当日"]],
-5:[["06:50-07:40","预习 MATH 讲义"],["08:00-09:50","大课 MATH"],["10:00-12:00","经济：MCQ 半套限时 + Diagram 3 个"],["14:00-15:30","数学：本周错题总清"],["15:45-17:15","化学一对一（9/14 起）／化学补漏"],["17:15-18:15","运动"],["19:30-21:00","生物：Essay 精写 1 题（限时 40 分钟）"],["21:15-22:00","复盘 + 明日计划"]],
-6:[["08:45-11:15","数学：P1 本周主题整段计时"],["11:30-12:00","错题入本"],["14:00-15:30","经济：LQ 模板练习 1 题（三步）"],["15:45-17:15","数学一对一（带 P1/P2 错题）"],["17:15-18:15","运动"],["19:30-21:00","本周错题清零（数学+经济）"],["21:00-21:45","预习下周数学/经济讲义"]],
-7:[["08:45-11:00","生物：本周主题收尾 + MCQ 10 题"],["11:15-12:00","生物 Essay 修改对照答案"],["14:00-15:30","化学：主题收尾 + 课后题"],["15:45-16:30","化学计算 5 题限时"],["16:30-17:30","周复盘清单 → 17:30 前交教练"],["17:30-18:30","运动"],["19:30-21:00","经济一对一 / 下周预习"],["21:00-21:45","预习化生讲义"],["22:00","收工早睡"]]
+1:[["07:00-07:40","早讀：經濟概念卡 20 分鐘 + 生物關鍵詞 20 分鐘"],["08:00-09:30","數學：P2 限時 45 題/75 分鐘 + 對答案記錯題"],["09:45-11:15","數學：P1 本週主題 LQ 5-6 題"],["11:30-12:00","錯題入本（上午數學）"],["14:00-15:20","化學：本週主題講義 + 課後題"],["15:35-16:55","生物：講義一節 + 思維導圖"],["17:00-18:00","運動 / 散步"],["19:30-21:00","經濟：本週主題講義 + 概念卡"],["21:15-22:00","覆盤：三科新內容各 10 分鐘"],["22:30","睡覺"]],
+2:[["07:00-07:40","預習 BIO 講義（標不懂處）"],["08:00-09:50","數學：P1 本週主題 LQ 5-6 題"],["10:15-12:00","大課 BIO（粵語聽不懂標頁碼）"],["13:45-14:15","預習 ECON 講義"],["14:20-16:10","大課 ECON"],["16:30-18:00","數學：錯題 / 主題剩餘"],["19:30-21:00","數學一對一（帶錯題+講義疑難）"],["21:15-22:00","覆盤 BIO + ECON 當日內容"]],
+3:[["06:45-07:45","預習 BIO + MATH 講義"],["08:00-09:50","大課 BIO"],["09:50-11:30","大課 MATH(a)/(b)"],["13:00-14:10","大課 MATH"],["14:10-15:40","消化兩節數學（講義+例題回看）"],["16:10-18:00","大課 CHEM"],["19:30-20:45","覆盤今日 4 課 + 標疑"],["20:45-21:30","錯題入本 + 預習週四講義"],["22:00","睡覺（今天最累）"]],
+4:[["07:00-07:40","預習 CHEM 講義"],["08:00-09:50","數學：P2 限時 or 計算類主題"],["10:15-12:00","大課 CHEM"],["13:45-14:15","預習 ECON 講義"],["14:20-16:10","大課 ECON"],["16:30-18:30","生物一對一（9/14 起）／生物自習"],["19:30-21:00","經濟一對一 / 經濟 MCQ 半套"],["21:15-22:00","覆盤 CHEM + ECON 當日"]],
+5:[["06:50-07:40","預習 MATH 講義"],["08:00-09:50","大課 MATH"],["10:00-12:00","經濟：MCQ 半套限時 + Diagram 3 個"],["14:00-15:30","數學：本週錯題總清"],["15:45-17:15","化學一對一（9/14 起）／化學補漏"],["17:15-18:15","運動"],["19:30-21:00","生物：Essay 精寫 1 題（限時 40 分鐘）"],["21:15-22:00","覆盤 + 明日計劃"]],
+6:[["08:45-11:15","數學：P1 本週主題整段計時"],["11:30-12:00","錯題入本"],["14:00-15:30","經濟：LQ 模板練習 1 題（三步）"],["15:45-17:15","數學一對一（帶 P1/P2 錯題）"],["17:15-18:15","運動"],["19:30-21:00","本週錯題清零（數學+經濟）"],["21:00-21:45","預習下週數學/經濟講義"]],
+7:[["08:45-11:00","生物：本週主題收尾 + MCQ 10 題"],["11:15-12:00","生物 Essay 修改對照答案"],["14:00-15:30","化學：主題收尾 + 課後題"],["15:45-16:30","化學計算 5 題限時"],["16:30-17:30","周覆盤清單 → 17:30 前交教練"],["17:30-18:30","運動"],["19:30-21:00","經濟一對一 / 下週預習"],["21:00-21:45","預習化生講義"],["22:00","收工早睡"]]
 };
 
 var WEEK_FOCUS = {
-1:"数学：二次方程与函数图像 · 经济：供求入门 · P2 首测记基线",
-2:"数学：指数对数+多项式 · 经济：弹性 · 化生一对一 9/14 启动",
-3:"数学：直线与圆 · 经济：成本 · 化生跟讲义收尾",
-4:"数学：三角 I · 经济：市场结构 · 10 月体检临近",
-5:"数学：数列 · 经济：宏观指标 · 为半程体检收口",
-6:"半程模拟体检（10/17 数经 / 10/18 化生）· 错题归因",
-7:"数学：概率统计 · 经济：货币通胀 · 体检复盘落地",
-8:"数学：微积分初步 · 经济：国际贸易 · 一轮收尾，11 月起历年卷"
+1:"數學：二次方程與函數圖像 · 經濟：供求入門 · P2 首測記基線",
+2:"數學：指數對數+多項式 · 經濟：彈性 · 化生一對一 9/14 啓動",
+3:"數學：直線與圓 · 經濟：成本 · 化生跟講義收尾",
+4:"數學：三角 I · 經濟：市場結構 · 10 月體檢臨近",
+5:"數學：數列 · 經濟：宏觀指標 · 為半程體檢收口",
+6:"半程模擬體檢（10/17 數經 / 10/18 化生）· 錯題歸因",
+7:"數學：概率統計 · 經濟：貨幣通脹 · 體檢覆盤落地",
+8:"數學：微積分初步 · 經濟：國際貿易 · 一輪收尾，11 月起歷年卷"
 };
 
-var SUBJ_COLOR = {"数学":"var(--math)","化学":"var(--chem)","生物":"var(--bio)","经济":"var(--econ)"};
-var SUBJ_FULL = {"math":"数学","chem":"化学","bio":"生物","econ":"经济"};
+var SUBJ_COLOR = {"數學":"var(--math)","化學":"var(--chem)","生物":"var(--bio)","經濟":"var(--econ)"};
+var SUBJ_FULL = {"math":"數學","chem":"化學","bio":"生物","econ":"經濟"};
 
 var CARDS = {
 "math":[
- {q:"二次方程求根公式？根的个数怎么看？",a:"x = [−b ± √(b²−4ac)] / 2a\n判别式 Δ = b²−4ac：>0 两实根；=0 一重根；<0 无实根\n★ P2 先看 Δ 再决定要不要硬解","explain":"为什么 Δ 决定根数：把 ax²+bx+c=0 配方成 (x+b/2a)² = (b²−4ac)/4a²。右边若为负，平方数不可能为负 → 无实根；右边为零 → 唯一解；右边为正 → 开方得两个解。\n直观记法：抛物线 y=ax²+bx+c 与 x 轴的交点个数 = 根的个数，Δ 决定交点。"},
- {q:"log 三大法则 + 换底公式",a:"log(ab) = log a + log b\nlog(a/b) = log a − log b\nlog aⁿ = n log a\n换底：log_a b = log b / log a","explain":"log 是指数的「镜像」。10²×10³=10⁵ 对应 log(100×1000)=log 10⁵=5=2+3。\n所以乘法变加法、除法变减法、次方变乘法。口诀：log 把运算「降一级」——乘→加、除→减、次方→乘。"},
- {q:"指数法则速记",a:"aᵐ·aⁿ = aᵐ⁺ⁿ　(aᵐ)ⁿ = aᵐⁿ\na⁰ = 1　a⁻ⁿ = 1/aⁿ　a^(1/n) = ⁿ√a","explain":"指数是「连乘计数」，法则都从乘除推来：\na¹÷a¹ = a⁰ = 1（同底相除指数相减）；a⁰÷aⁿ = a⁻ⁿ → 负指数就是倒数。\n分数指数 = 开方：a^(1/2) = √a。\n所以 a⁰=1 不是规定，是 aⁿ÷aⁿ 的自然结果。"},
- {q:"两直线垂直的斜率关系？",a:"m₁ · m₂ = −1（互相垂直）\n平行则 m₁ = m₂\n★ 见到 perpendicular 立刻写乘积 = −1"},
- {q:"圆方程两种形式？圆心半径怎么找？",a:"标准：(x−h)² + (y−k)² = r²\n一般：x²+y²+Dx+Ey+F=0\n圆心 (−D/2, −E/2)，r = √((D/2)²+(E/2)²−F)","explain":"一般式配方就变回标准式：\nx²+Dx = (x+D/2)² − (D/2)²，y 同理。\n配方后对比 (x−h)²+(y−k)²=r²，得圆心 (−D/2, −E/2)。\n记「配方还原」即可，半径公式不用死背。"},
- {q:"等差数通项 + 求和",a:"Tₙ = a + (n−1)d\nSₙ = n/2 · [2a + (n−1)d]\n= n/2 · (a + L)（L = 末项）"},
- {q:"等比数通项 + 求和 + 无限项",a:"Tₙ = arⁿ⁻¹\nSₙ = a(1−rⁿ)/(1−r)，r≠1\n|r|<1 时 S∞ = a/(1−r)","explain":"无限项和的秘密在 |r|<1：此时 rⁿ 越乘越小、趋近 0（如 (½)¹⁰≈0.001），所以 Sₙ=a(1−rⁿ)/(1−r) 里的 rⁿ 消失 → S∞=a/(1−r)。\n|r|≥1 时 rⁿ 不收敛（越乘越大或来回跳），没有无限项和。"},
- {q:"sin²θ + cos²θ = ？ 二倍角公式？",a:"sin²θ + cos²θ = 1\ntanθ = sinθ/cosθ\nsin2θ = 2sinθcosθ\ncos2θ = cos²θ − sin²θ = 2cos²θ −1 = 1−2sin²θ"},
- {q:"正弦定理 / 余弦定理",a:"正弦：a/sinA = b/sinB = c/sinC = 2R\n余弦：a² = b²+c² − 2bc·cosA\n★ 已知两边夹一角用余弦，知角求边用正弦","explain":"正弦定理：边与对角正弦成比例 →「大角对大边」，适合已知两角一边、或两边一对角。\n余弦定理是勾股定理的推广：a²=b²+c²−2bc·cosA，直角时 cos90°=0 变回勾股。\n选法：给角用正弦、给两边夹一角或三边求角用余弦。"},
- {q:"排列 vs 组合怎么分？",a:"排列 P(n,r) = n!/(n−r)!（有序）\n组合 C(n,r) = n!/[r!(n−r)!]（无序）\n★ 关键字：排 order/次序 = 排列；选 choose/组 = 组合","explain":"排列 = 选完还要排顺序（AB 和 BA 算两种）；组合 = 只选不排（AB、BA 算一种）。\n公式上 P(n,r)=C(n,r)×r!：组合选出的 r 个东西内部还有 r! 种排法，排列把它也算上。"},
- {q:"互斥、独立事件的概率",a:"互斥：P(A∪B) = P(A)+P(B)\n独立：P(A∩B) = P(A)·P(B)\n条件：P(A|B) = P(A∩B)/P(B)"},
- {q:"期望与方差",a:"E(X) = Σ x·P(x)\nVar(X) = E(X²) − [E(X)]²\nσ = √Var\n★ P2 常考：先列分布表再算，别跳步","explain":"期望 = 加权平均（概率是权重）。\n方差定义是 E[(X−μ)²]，展开化简得 Var = E(X²) − μ²。\n所以考试算方差先算 E(X) 和 E(X²)，别逐项减。"},
- {q:"求导基础 + 切线斜率",a:"d/dx xⁿ = nxⁿ⁻¹\nd/dx (uv) 乘积法则、d/dx (u/v) 商法则\n切线斜率 = 导数在该 x 的值\n★ 切线题三步：求导 → 代入切点 → 点斜式","explain":"导数 = 瞬时变化率 = 曲线上该点的切线斜率。\nf′(x) 是「每个 x 处的斜率」，所以切线斜率 = 把切点 x 代入 f′(x)。\n由定义 lim(Δy/Δx) 理解：Δx→0 时割线变切线。"},
- {q:"极值判定（最大/最小）",a:"f′(x)=0 找驻点\nf″(x)>0 → 极小；f″(x)<0 → 极大\n区间应用题还要比较端点值","explain":"f′(x) 是斜率。驻点 = 斜率 0（切线水平）。\nf″(x)>0 说明斜率在增大、曲线凹向上 → 谷 → 极小值；f″(x)<0 → 峰 → 极大值。\n像看碗：开口向上是极小，开口向下是极大。f″(x)=0 要再判（可能只是拐点）。"},
- {q:"复利公式",a:"A = P(1 + r/n)^(nt)\nP 本金，r 年利率，n 每年复利次数，t 年\n★ 连续复利题留意题目给的近似 e","explain":"利滚利 = 指数增长：一年后 P(1+r)，n 年后 P(1+r)ⁿ。\n每年复利 m 次：每期利率 r/m、共 mt 期 → P(1+r/m)^(mt)。\n底数 >1，所以越滚越快；比较方案时看有效年利率。"},
- {q:"★ P2 抢分策略",a:"1) 前 20 题 15 分钟内解决（送分题不恋战）\n2) 卡住超 90 秒先跳，最后回头\n3) 每题涂卡前核对题号\n4) 目标错 ≤8 题 = 5 级水平"},
- {"type": "trap", "q": "两根「相异实根」和「有实根」条件一样吗？", "a": "不一样！\n相异实根 → Δ > 0\n有实根（可重根）→ Δ ≥ 0\n无实根 → Δ < 0\n🔥 差一个等号，P2 最爱挖这个坑"},
- {"type": "trap", "q": "log 方程最常见的坑？", "a": "真数必须 > 0！\n解 logₐx = b 得 x = aᵇ 后，代回验算 x>0 且底数 a>0、a≠1\n🔥 解完不验根 = 白解"},
- {"type": "trap", "q": "「至少一次」怎么算最快？", "a": "P(至少一次) = 1 − P(一次都不)\n🔥 看到 at least / 至少，先想对立事件\nP(至多两次) = P(0次)+P(1次)+P(2次)，分清边界"},
- {"type": "trap", "q": "圆与直线相切，用什么条件？", "a": "圆心到直线距离 = 半径（首选）\n或联立后 Δ = 0\n🔥 相切 ≠ 相交：相交是距离 < 半径（Δ>0）"},
- {"type": "trap", "q": "找极值最容易漏什么？", "a": "闭区间最值还要比较端点值！\n驻点 f′(x)=0 + f″(x) 判极大/小\nf″(x)=0 可能是拐点，不是极值\n🔥 应用题定义域两端的值常被忽略"},
- {"type": "trap", "q": "统计题三个高频坑？", "a": "1) 中位数/四分位数先排序！\n2) 方差单位是平方，标准差才还原\n3) 看清问总体还是样本（DSE 多用总体 σ = √(Σ(x−μ)²/n)）"},
- {"type": "skill", "q": "P2 选择题不会做怎么办？（MC 抢分）", "a": "1) 代入选项：从 C 开始试\n2) 代入特殊值：0、1、−1、2\n3) 排除法：单位/正负号先筛\n🔥 每题限 90 秒，超时标记跳过，最后回头"},
- {"type": "skill", "q": "P1 长题「过程分」怎么拿满？", "a": "1) 每步换行，公式先写再代数字\n2) 设未知数写清 let x = …\n3) 答案单位不丢\n4) 不会做也写相关公式/第一步\n🔥 步骤分按点给，别跳步别省字"},
- {"type": "skill", "q": "见到 find the range of k 想到什么？", "a": "三步走：\n1) 把条件翻译成判别式/不等式\n2) 二次方程有实根 → Δ ≥ 0\n3) 解不等式 → 范围\n🔥 参数题九成是判别式或顶点范围"},
- {"type": "skill", "q": "3D 三角题怎么下手？", "a": "永远把 3D 拆成 2D：\n1) 找出包含所求角的直角三角形\n2) 标出已知边\n3) 用 sin/cos/tan 或正弦余弦定理\n🔥 画辅助线把斜三角形变直角三角形"},
- {"type": "skill", "q": "排列组合第一步做什么？", "a": "先判断有序还是无序：\n排队/排位/密码 → 排列 P\n选人/选科/组队 → 组合 C\n🔥 关键词：arrange=排列，choose/select=组合"},
- {"type": "skill", "q": "函数图像题快速画法？", "a": "1) 找开口方向（二次 a 正负）\n2) 顶点 x = −b/2a，代回求 y\n3) 与 x 轴交点（Δ）与 y 轴截距\n4) 对称轴画出\n🔥 图像题结合判别式和顶点即可速判选项"}
+ {q:"二次方程求根公式？根的個數怎麼看？",a:"x = [−b ± √(b²−4ac)] / 2a\n判別式 Δ = b²−4ac：>0 兩實根；=0 一重根；<0 無實根\n★ P2 先看 Δ 再決定要不要硬解","explain":"為什麼 Δ 決定根數：把 ax²+bx+c=0 配方成 (x+b/2a)² = (b²−4ac)/4a²。右邊若為負，平方數不可能為負 → 無實根；右邊為零 → 唯一解；右邊為正 → 開方得兩個解。\n直觀記法：拋物線 y=ax²+bx+c 與 x 軸的交點個數 = 根的個數，Δ 決定交點。"},
+ {q:"log 三大法則 + 換底公式",a:"log(ab) = log a + log b\nlog(a/b) = log a − log b\nlog aⁿ = n log a\n換底：log_a b = log b / log a","explain":"log 是指數的「鏡像」。10²×10³=10⁵ 對應 log(100×1000)=log 10⁵=5=2+3。\n所以乘法變加法、除法變減法、次方變乘法。口訣：log 把運算「降一級」——乘→加、除→減、次方→乘。"},
+ {q:"指數法則速記",a:"aᵐ·aⁿ = aᵐ⁺ⁿ　(aᵐ)ⁿ = aᵐⁿ\na⁰ = 1　a⁻ⁿ = 1/aⁿ　a^(1/n) = ⁿ√a","explain":"指數是「連乘計數」，法則都從乘除推來：\na¹÷a¹ = a⁰ = 1（同底相除指數相減）；a⁰÷aⁿ = a⁻ⁿ → 負指數就是倒數。\n分數指數 = 開方：a^(1/2) = √a。\n所以 a⁰=1 不是規定，是 aⁿ÷aⁿ 的自然結果。"},
+ {q:"兩直線垂直的斜率關係？",a:"m₁ · m₂ = −1（互相垂直）\n平行則 m₁ = m₂\n★ 見到 perpendicular 立刻寫乘積 = −1"},
+ {q:"圓方程兩種形式？圓心半徑怎麼找？",a:"標準：(x−h)² + (y−k)² = r²\n一般：x²+y²+Dx+Ey+F=0\n圓心 (−D/2, −E/2)，r = √((D/2)²+(E/2)²−F)","explain":"一般式配方就變回標準式：\nx²+Dx = (x+D/2)² − (D/2)²，y 同理。\n配方後對比 (x−h)²+(y−k)²=r²，得圓心 (−D/2, −E/2)。\n記「配方還原」即可，半徑公式不用死背。"},
+ {q:"等差數通項 + 求和",a:"Tₙ = a + (n−1)d\nSₙ = n/2 · [2a + (n−1)d]\n= n/2 · (a + L)（L = 末項）"},
+ {q:"等比數通項 + 求和 + 無限項",a:"Tₙ = arⁿ⁻¹\nSₙ = a(1−rⁿ)/(1−r)，r≠1\n|r|<1 時 S∞ = a/(1−r)","explain":"無限項和的秘密在 |r|<1：此時 rⁿ 越乘越小、趨近 0（如 (½)¹⁰≈0.001），所以 Sₙ=a(1−rⁿ)/(1−r) 裏的 rⁿ 消失 → S∞=a/(1−r)。\n|r|≥1 時 rⁿ 不收斂（越乘越大或來回跳），沒有無限項和。"},
+{q:"sin²θ + cos²θ = ？ 三角方程怎麼解？",a:"sin²θ + cos²θ = 1，tanθ = sinθ/cosθ\n解 asinθ = b（0°≤θ≤360°）三步：\n1) 參考角 α = sin⁻¹|b/a|\n2) sin 正→第Ⅰ、Ⅱ象限；負→第Ⅲ、Ⅳ象限\n3) 寫全象限內所有解\n★ DSE 三角方程常配 sin30/45/60 精確值",explain:"sin²θ+cos²θ=1 來自單位圓畢氏定理：圓上點 (cosθ,sinθ) 到原點距離為 1。\n解三角方程的關鍵：sin 在第ⅠⅡ象限為正、第ⅢⅣ象限為負；cos 在第ⅠⅣ為正。\n先定參考角 → 再看象限正負 → 列全 0°–360° 內所有解。"},
+ {q:"正弦定理 / 餘弦定理",a:"正弦：a/sinA = b/sinB = c/sinC = 2R\n餘弦：a² = b²+c² − 2bc·cosA\n★ 已知兩邊夾一角用餘弦，知角求邊用正弦","explain":"正弦定理：邊與對角正弦成比例 →「大角對大邊」，適合已知兩角一邊、或兩邊一對角。\n餘弦定理是勾股定理的推廣：a²=b²+c²−2bc·cosA，直角時 cos90°=0 變回勾股。\n選法：給角用正弦、給兩邊夾一角或三邊求角用餘弦。"},
+ {q:"排列 vs 組合怎麼分？",a:"排列 P(n,r) = n!/(n−r)!（有序）\n組合 C(n,r) = n!/[r!(n−r)!]（無序）\n★ 關鍵字：排 order/次序 = 排列；選 choose/組 = 組合","explain":"排列 = 選完還要排順序（AB 和 BA 算兩種）；組合 = 只選不排（AB、BA 算一種）。\n公式上 P(n,r)=C(n,r)×r!：組合選出的 r 個東西內部還有 r! 種排法，排列把它也算上。"},
+ {q:"互斥、獨立事件的概率",a:"互斥：P(A∪B) = P(A)+P(B)\n獨立：P(A∩B) = P(A)·P(B)\n條件：P(A|B) = P(A∩B)/P(B)"},
+ {q:"複利公式",a:"A = P(1 + r/n)^(nt)\nP 本金，r 年利率，n 每年複利次數，t 年\n★ 連續複利題留意題目給的近似 e","explain":"利滾利 = 指數增長：一年後 P(1+r)，n 年後 P(1+r)ⁿ。\n每年複利 m 次：每期利率 r/m、共 mt 期 → P(1+r/m)^(mt)。\n底數 >1，所以越滾越快；比較方案時看有效年利率。"},
+{q:"餘式定理 / 因式定理怎麼用？",a:"f(x) 除以 (x−a) 的餘式 = f(a)\nf(a)=0 ⇔ (x−a) 是因式\n★ 求餘式直接代 x=a，不用做長除法",explain:"餘式定理：f(x)÷(x−a) 的餘式 = f(a)。因為除式是一次式、餘式為常數；令 x=a 時 (x−a) 項全為 0，只剩餘式。\n因式定理 = 餘式為 0 的特例。求未知係數：把已知根代入 f(x)=0 建方程。P1 多項式題幾乎每年出現。"},
+{q:"圓的基本角性質（必記 3 條）",a:"1) 同弓形圓周角相等\n2) 半圓上的圓周角 = 90°（直徑所對角）\n3) 圓內接四邊形對角互補\n★ P2 幾何 MC 高頻：先找等角再找相似/全等",explain:"同一條弧上的圓周角相等：它們都對着同一段弧。\n直徑所對圓周角 = 90°：半圓弧對應圓心角 180°，圓周角是它一半。\n圓內接四邊形對角互補：兩組對角各對着互補的兩段弧（合起來 360°）。"},
+{"type":"trap","q":"f(x)+k 和 f(x+k) 方向一樣嗎？",a:"不一樣！\ny=f(x)+k：上加下減（縱移）\ny=f(x+k)：左加右減（k>0 向左移）\ny=kf(x)：縱伸縮\ny=f(kx)：橫伸縮\n🔥 f(x+k) 最易搞反：+k 是向左不是向右",explain:"f(x)+k 只改函數值 → 整條線上下移。\nf(x+k)：要讓新函數在某 x 處等於舊 f(x₀)，需 x+k=x₀ 即 x=x₀−k → 圖像左移。\n口訣：對 x 動手 = 左右（左加右減），對整體動手 = 上下（上加下減）。P2 每年 1–2 題 MC。"},
+{q:"變分（正變/反變/聯變）三步？",a:"1) 寫關係式：y∝x → y=kx；y∝1/x → y=k/x；y∝xz → y=kxz\n2) 代入一組已知值求 k\n3) 用 k 求新值\n★ 部分變分 y=kx+c 需兩組數據求 k、c",explain:"變分 = 比例關係的方程化：正變 y=kx（x 增 y 增）、反變 y=k/x（x 增 y 減）、聯變是多個量相乘。\n所有題三步走：寫式 → 代已知求 k → 代新值求答案。區分正/反變看題目關鍵詞 directly/inversely 或正比/反比。"},
+{q:"配方法求二次函數最大/最小值三步？",a:"1) 配方：y = a(x−h)² + k\n2) 頂點 (h, k)：a>0 → 最小 k；a<0 → 最大 k\n3) 有定義域限制時：頂點不在範圍內就比端點值\n★ 配方法 = 必修唯一極值考法（不考導數）",explain:"二次函數配方本質是湊完全平方：y=ax²+bx+c → a(x−h)²+k。\n頂點就是極值點：開口向上（a>0）取最小 k，向下取最大 k。\n考試若給實際範圍（如 0≤x≤10），頂點可能落在外，此時最值在離頂點最近的端點。"},
+{q:"直線與圓：位置關係 + 切線方程怎麼求？",a:"位置關係看圓心到直線距離 d vs 半徑 r：\nd<r 相交（割線）；d=r 相切；d>r 相離\n求切線：設 y=mx+c → 用 d=r 解 m、c（或聯立後 Δ=0）\n★ 過圓上一點的切線：半徑垂直切線，斜率乘積 = −1",explain:"圓是到圓心等距的點集：直線與圓關係 = 圓心到直線距離與半徑比較——d<r 穿過割兩點、d=r 恰好擦邊（切）、d>r 不碰。\n求切線兩法：距離法（d=r 解參數）或聯立法（代入後 Δ=0）。切點半徑垂直切線是幾何捷徑。"},
+{q:"線性規劃求最大/最小值步驟？",a:"1) 每條約束不等式畫成直線，定可行域（陰影）\n2) 找可行域各頂點（直線交點）\n3) 目標函數 P=ax+by 代入每個頂點取值\n4) 最大/最小在頂點出現（或整條邊）\n★ P1 每年作圖題：先標軸再畫線，頂點求全",explain:"線性規劃 = 在約束圍成的可行域裏找目標函數最值。\n可行域是凸多邊形，最優解必在頂點：把各頂點代入目標函數比大小即可。\n若題目要求整數解，再檢查最優點附近整點。"},
+{"type":"trap","q":"條件概率和「排列組合+概率」混合題怎麼破？",a:"條件概率：P(A|B) = P(A∩B)/P(B) = 在 B 已發生前提下 A 的概率\n混合題兩步：\n1) 先數總情況數（用 P/C）\n2) 再數合條件的情況數 → 相除\n🔥 「已知…求…」句型 = 條件概率，分母收窄",explain:"條件概率本質是「分母收窄」：P(A|B) 只在 B 已發生的世界裏數 A。\nDSE 長題常把條件概率與排列組合混考：先定樣本空間，再數目標情況，兩數一比。\n關鍵詞 given / 已知 / 在…條件下 → 條件概率。"},
+ {q:"★ P2 搶分策略",a:"1) 前 20 題 15 分鐘內解決（送分題不戀戰）\n2) 卡住超 90 秒先跳，最後回頭\n3) 每題塗卡前核對題號\n4) 目標錯 ≤8 題 = 5 級水平"},
+ {"type": "trap", "q": "兩根「相異實根」和「有實根」條件一樣嗎？", "a": "不一樣！\n相異實根 → Δ > 0\n有實根（可重根）→ Δ ≥ 0\n無實根 → Δ < 0\n🔥 差一個等號，P2 最愛挖這個坑"},
+ {"type": "trap", "q": "log 方程最常見的坑？", "a": "真數必須 > 0！\n解 logₐx = b 得 x = aᵇ 後，代回驗算 x>0 且底數 a>0、a≠1\n🔥 解完不驗根 = 白解"},
+ {"type": "trap", "q": "「至少一次」怎麼算最快？", "a": "P(至少一次) = 1 − P(一次都不)\n🔥 看到 at least / 至少，先想對立事件\nP(至多兩次) = P(0次)+P(1次)+P(2次)，分清邊界"},
+ {"type": "trap", "q": "圓與直線相切，用什麼條件？", "a": "圓心到直線距離 = 半徑（首選）\n或聯立後 Δ = 0\n🔥 相切 ≠ 相交：相交是距離 < 半徑（Δ>0）"},
+{"type":"trap","q":"二次函數求最大/最小，最易漏什麼？",a:"1) 先定開口：a>0 有最小、a<0 有最大\n配方法 y=a(x−h)²+k → 頂點 (h,k)\n2) 實際問題先寫定義域（x 的範圍）\n3) 頂點不在範圍內 → 最值在端點\n🔥 應用題別直接拿頂點當答案",explain:"二次函數配方 y=a(x−h)²+k 後，(h,k) 是頂點：a>0 開口向上 → k 是最小值；a<0 向下 → k 是最大值。\n但應用題若限定 x 範圍（如邊長>0），頂點可能落在外——此時最值出現在離頂點最近的端點。先畫草圖判斷最保險。"},
+ {"type": "trap", "q": "統計題三個高頻坑？", "a": "1) 中位數/四分位數先排序！\n2) 方差單位是平方，標準差才還原\n3) 看清問總體還是樣本（DSE 多用總體 σ = √(Σ(x−μ)²/n)）"},
+ {"type": "skill", "q": "P2 選擇題不會做怎麼辦？（MC 搶分）", "a": "1) 代入選項：從 C 開始試\n2) 代入特殊值：0、1、−1、2\n3) 排除法：單位/正負號先篩\n🔥 每題限 90 秒，超時標記跳過，最後回頭"},
+ {"type": "skill", "q": "P1 長題「過程分」怎麼拿滿？", "a": "1) 每步換行，公式先寫再代數字\n2) 設未知數寫清 let x = …\n3) 答案單位不丟\n4) 不會做也寫相關公式/第一步\n🔥 步驟分按點給，別跳步別省字"},
+ {"type": "skill", "q": "見到 find the range of k 想到什麼？", "a": "三步走：\n1) 把條件翻譯成判別式/不等式\n2) 二次方程有實根 → Δ ≥ 0\n3) 解不等式 → 範圍\n🔥 參數題九成是判別式或頂點範圍"},
+ {"type": "skill", "q": "3D 三角題怎麼下手？", "a": "永遠把 3D 拆成 2D：\n1) 找出包含所求角的直角三角形\n2) 標出已知邊\n3) 用 sin/cos/tan 或正弦餘弦定理\n🔥 畫輔助線把斜三角形變直角三角形"},
+ {"type": "skill", "q": "排列組合第一步做什麼？", "a": "先判斷有序還是無序：\n排隊/排位/密碼 → 排列 P\n選人/選科/組隊 → 組合 C\n🔥 關鍵詞：arrange=排列，choose/select=組合"},
+ {"type": "skill", "q": "函數圖像題快速畫法？", "a": "1) 找開口方向（二次 a 正負）\n2) 頂點 x = −b/2a，代回求 y\n3) 與 x 軸交點（Δ）與 y 軸截距\n4) 對稱軸畫出\n🔥 圖像題結合判別式和頂點即可速判選項"}
 ],
 "chem":[
- {q:"摩尔三公式（最重要）",a:"n = m / M（质量/摩尔质量）\nn = V / 24.0 dm³（常温常压气体）\nn = C × V（浓度 mol dm⁻³ × 体积 dm³）","explain":"摩尔是「计数单位」，就像一打 = 12 个；1 mol = 6.02×10²³ 个粒子。\nn = N/NA 数有几个 mol；质量换 mol 用摩尔质量 M（g/mol，数值 = 相对原子/分子质量）；气体用 24 dm³/mol（常温常压每 mol 气体占 24 dm³）；溶液用浓度 C（每 1 dm³ 含几 mol）。"},
- {q:"NA 是多少？怎么用？",a:"NA = 6.02 × 10²³ mol⁻¹\n粒子数 = n × NA\n★ 单位换算先写清楚，错一半是单位错"},
- {q:"滴定计算套路",a:"1) 写平衡方程式（找摩尔比）\n2) n(已知) = C×V\n3) 按比例求 n(未知)\n4) 浓度 = n/V\n★ 注意体积单位 dm³ vs cm³（÷1000）"},
- {q:"周期律：同族向下、同周期向右怎么变？",a:"同族向下：原子半径↑、电负性↓、金属性↑\n同周期向右：半径↓、电负性↑、非金属性↑\n★ 答题先写趋势再举例，白拿分","explain":"同族（竖着看）：电子层数增加 → 原子变大 → 最外层电子离核远、抓得松 → 易失电子 → 金属性增、电负性减。\n同周期（横着看）：质子数增加而电子层数不变 → 核吸引增强 → 原子变小 → 易得电子 → 非金属性增。"},
- {q:"离子键 / 共价键 / 金属键速判",a:"离子键：金属 + 非金属（如 NaCl）\n共价键：非金属之间（如 H₂O）\n金属键：金属单质\n★ 判据看元素类型，不是看状态","explain":"本质都是「怎么处理外层电子」：\n金属+非金属：金属把电子给非金属 → 正负离子相吸 = 离子键。\n非金属之间：都不肯给 → 共用电子对 = 共价键。\n金属内部：电子成「自由电子海」在正离子间流动 = 金属键（所以金属导电导热可延展）。"},
- {q:"pH 计算 + 强/弱酸区别",a:"pH = −log[H⁺]\n强酸完全电离；弱酸部分电离\n★ 弱酸 pH 不能直接用浓度当 [H⁺]","explain":"pH = −log[H⁺]，对数刻度：pH 差 1 = H⁺ 浓度差 10 倍。\n强酸完全电离 → [H⁺] = 酸浓度，直接算；弱酸部分电离 → [H⁺] < 酸浓度，pH 更高（更接近 7）。"},
- {q:"氧化还原记忆口诀",a:"OIL RIG：Oxidation Is Loss（失电子氧化）\nReduction Is Gain（得电子还原）\n氧化数升高 = 被氧化 = 还原剂","explain":"OIL RIG：氧化 = 失去电子（Oxidation Is Loss），还原 = 得到电子（Reduction Is Gain）。\n中文口诀「失升氧、得降还」：失电子 → 氧化数升高 → 被氧化（作还原剂）；得电子 → 氧化数降低 → 被还原（作氧化剂）。"},
- {q:"原电池 vs 电解池一句话分",a:"原电池（电池）：自发放电，化学能→电能\n电解池：外部电源驱动，电能→化学能\n★ 阳极为氧化：原电池负极 / 电解池阳极","explain":"原电池 = 自发反应自己发电（化学能→电能），活泼金属在负极失电子，电子沿外电路流到正极。\n电解池 = 外部电源强迫非自发反应发生（电能→化学能）。\n记：原 = 自发产电；电解 = 耗电加工。"},
- {q:"有机物官能团命名后缀",a:"烷 -ane　烯 -ene　醇 -ol\n醛 -al　羧酸 -oic acid　酯 -oate\n★ 写结构式先找官能团再连碳链"},
- {q:"同分异构 = ？",a:"分子式相同、结构不同\n★ 数异构体按步骤：碳链异构 → 官能团位置 → 官能团类型","explain":"分子式相同、原子连接方式不同 → 结构不同、性质不同。\n数异构体按顺序：①碳链骨架（直链/支链）→ ②官能团位置（OH 在几号碳）→ ③官能团类型（醇 vs 醚）。\n画结构时利用对称性避免重复计数。"},
- {q:"Le Chatelier 平衡移动",a:"改变条件，平衡向抵消该改变的方向移动\n增压→向气体分子少的一边\n升温→向吸热方向\n★ 催化剂不移动平衡，只加速到达","explain":"平衡像「弹簧」：你压它（增压/加反应物/升温），它就往抵消你动作的方向弹。\n注意：温度变会改 Kc 值；浓度/压力变不改 Kc 只移动位置；催化剂不参与，只让平衡更快到达。"},
- {q:"反应速率影响因素（答题 4 点）",a:"1) 浓度↑ → 碰撞频率↑\n2) 温度↑ → 动能↑ 有效碰撞↑\n3) 表面积↑ → 接触↑\n4) 催化剂 → 降活化能\n★ 每题都从碰撞理论解释才拿满"},
- {q:"ΔH 正负与吸放热",a:"ΔH < 0 放热（exothermic）\nΔH > 0 吸热（endothermic）\n★ 燃烧/中和/金属+酸 多为放热","explain":"ΔH ≈ 生成物总能量 − 反应物总能量。\n生成物更稳定（能量低）→ ΔH<0 → 多余能量以热放出 = 放热（燃烧/中和/金属+酸）。\n生成物能量高 → 需吸热补差 = 吸热。另一视角：断键吸热、成键放热，ΔH=断键−成键。"},
- {q:"气体测试速记",a:"O₂：带火星木条复燃\nCO₂：石灰水变浑浊\nH₂：点燃有爆鸣\nCl₂：湿润淀粉碘化钾试纸变蓝\nNH₃：湿润红色石蕊变蓝"},
- {q:"★ 化学长题答题格式",a:"结论先行 → 方程式/计算 → 解释\n例：会生成沉淀…方程式…因为离子浓度积超 Ksp\n★ 步骤分按点给，宁可多写判断句不写废话"},
- {q:"★ 摩尔计算检查单",a:"1) 方程式配平没？摩尔比找对没？\n2) 体积单位 dm³/cm³\n3) 有效数字跟题目\n4) 最后问的是质量/体积/浓度？别答非所问"},
- {"type": "trap", "q": "摩尔计算第一杀手是什么？", "a": "单位！cm³ ÷ 1000 = dm³\n浓度 C = mol/dm³，体积必须 dm³\n🔥 n = C×V 前先看体积单位，错一半是这里"},
- {"type": "trap", "q": "稀释强酸，pH 会无限升吗？", "a": "不会！\n强酸稀释 10 倍 pH +1，但无限稀释只会趋近 7（水的电离兜底）\n🔥 别算出 pH=9 的酸性溶液"},
- {"type": "trap", "q": "氧化数判断三铁律？", "a": "1) 单质 = 0\n2) F 恒为 −1；O 通常 −2（过氧化物 H₂O₂ 中 −1）\n3) 化合物中各元素氧化数和 = 0（离子 = 电荷）"},
- {"type": "trap", "q": "Kc 表达式里什么不写？", "a": "固体和纯液体不写入 Kc！\n只写气体（aq 溶液要写）\n🔥 漏写/多写状态符号是常错点"},
- {"type": "trap", "q": "燃烧产物检验的顺序？", "a": "先验水（无水 CuSO₄ 白→蓝），再验 CO₂（石灰水变浑浊）\n🔥 顺序反了会误判：气体先通过石灰水会带走水蒸气"},
- {"type": "trap", "q": "催化剂到底改变什么？", "a": "只降活化能、加速到达平衡\n🔥 不改变平衡位置、不改变平衡常数、不改变产率（只改变达到平衡的时间）"},
- {"type": "skill", "q": "化学长题动笔前先做什么？", "a": "1) 圈出方程式，找摩尔比\n2) 标出已知量（m/V/C）\n3) 问什么（质量/体积/浓度）\n🔥 先搭框架再算，避免算完发现答非所问"},
- {"type": "skill", "q": "滴定操作两个必考点？", "a": "1) 锥形瓶用蒸馏水冲洗即可（不能用药液洗）\n2) 读数视线与液面最低处平齐\n3) 重复滴定取平均（剔除明显异常值）"},
- {"type": "skill", "q": "离子方程式配平顺序？", "a": "先配原子（质量守恒）再配电荷\n🔥 氧化还原：先拆半反应配电子，再合并"},
- {"type": "skill", "q": "气体检验速记卡", "a": "O₂：带火星木条复燃\nCO₂：石灰水变浑浊\nH₂：点燃爆鸣声\nCl₂：湿润淀粉碘化钾试纸变蓝\nNH₃：湿润红色石蕊试纸变蓝\nSO₂：使高锰酸钾褪色"},
- {"type": "skill", "q": "有效数字怎么跟？", "a": "跟题目给的最小有效数字（一般 3 位）\n🔥 计算中间过程多保留，最后答案才舍入"},
- {"type": "skill", "q": "实验题「重复实验」的目的怎么写？", "a": "取平均值以减少随机误差 / 提高结果可靠性\n🔥 和「控制变量」搭配答：自变量梯度 + 其他条件相同 + 重复取平均 = 实验题满分三件套"}
+ {q:"摩爾三公式（最重要）",a:"n = m / M（質量/摩爾質量）\nn = V / 24.0 dm³（常温常壓氣體）\nn = C × V（濃度 mol dm⁻³ × 體積 dm³）","explain":"摩爾是「計數單位」，就像一打 = 12 個；1 mol = 6.02×10²³ 個粒子。\nn = N/NA 數有幾個 mol；質量換 mol 用摩爾質量 M（g/mol，數值 = 相對原子/分子質量）；氣體用 24 dm³/mol（常温常壓每 mol 氣體佔 24 dm³）；溶液用濃度 C（每 1 dm³ 含幾 mol）。"},
+ {q:"NA 是多少？怎麼用？",a:"NA = 6.02 × 10²³ mol⁻¹\n粒子數 = n × NA\n★ 單位換算先寫清楚，錯一半是單位錯"},
+ {q:"滴定計算套路",a:"1) 寫平衡方程式（找摩爾比）\n2) n(已知) = C×V\n3) 按比例求 n(未知)\n4) 濃度 = n/V\n★ 注意體積單位 dm³ vs cm³（÷1000）"},
+ {q:"週期律：同族向下、同週期向右怎麼變？",a:"同族向下：原子半徑↑、電負性↓、金屬性↑\n同週期向右：半徑↓、電負性↑、非金屬性↑\n★ 答題先寫趨勢再舉例，白拿分","explain":"同族（豎着看）：電子層數增加 → 原子變大 → 最外層電子離核遠、抓得松 → 易失電子 → 金屬性增、電負性減。\n同週期（橫着看）：質子數增加而電子層數不變 → 核吸引增強 → 原子變小 → 易得電子 → 非金屬性增。"},
+ {q:"離子鍵 / 共價鍵 / 金屬鍵速判",a:"離子鍵：金屬 + 非金屬（如 NaCl）\n共價鍵：非金屬之間（如 H₂O）\n金屬鍵：金屬單質\n★ 判據看元素類型，不是看狀態","explain":"本質都是「怎麼處理外層電子」：\n金屬+非金屬：金屬把電子給非金屬 → 正負離子相吸 = 離子鍵。\n非金屬之間：都不肯給 → 共用電子對 = 共價鍵。\n金屬內部：電子成「自由電子海」在正離子間流動 = 金屬鍵（所以金屬導電導熱可延展）。"},
+ {q:"pH 計算 + 強/弱酸區別",a:"pH = −log[H⁺]\n強酸完全電離；弱酸部分電離\n★ 弱酸 pH 不能直接用濃度當 [H⁺]","explain":"pH = −log[H⁺]，對數刻度：pH 差 1 = H⁺ 濃度差 10 倍。\n強酸完全電離 → [H⁺] = 酸濃度，直接算；弱酸部分電離 → [H⁺] < 酸濃度，pH 更高（更接近 7）。"},
+ {q:"氧化還原記憶口訣",a:"OIL RIG：Oxidation Is Loss（失電子氧化）\nReduction Is Gain（得電子還原）\n氧化數升高 = 被氧化 = 還原劑","explain":"OIL RIG：氧化 = 失去電子（Oxidation Is Loss），還原 = 得到電子（Reduction Is Gain）。\n中文口訣「失升氧、得降還」：失電子 → 氧化數升高 → 被氧化（作還原劑）；得電子 → 氧化數降低 → 被還原（作氧化劑）。"},
+{q:"化學電池（chemical cell）vs 電解 一句話分",a:"化學電池：自發放電，化學能→電能\n電解：外部電源驅動，電能→化學能\n★ 放電：負極失電子（氧化）；電解：陽極失電子（氧化）",explain:"化學電池 = 自發的氧化還原反應自己發電（化學能→電能），活潑金屬在負極失電子，電子沿外電路流到正極。\n電解 = 外部電源強迫非自發反應發生（電能→化學能）。\n記：電池 = 自發產電；電解 = 耗電加工。DSE 中文卷術語是「化學電池」不是「原電池」。"},
+ {q:"有機物官能團命名後綴",a:"烷 -ane　烯 -ene　醇 -ol\n醛 -al　羧酸 -oic acid　酯 -oate\n★ 寫結構式先找官能團再連碳鏈"},
+ {q:"同分異構 = ？",a:"分子式相同、結構不同\n★ 數異構體按步驟：碳鏈異構 → 官能團位置 → 官能團類型","explain":"分子式相同、原子連接方式不同 → 結構不同、性質不同。\n數異構體按順序：①碳鏈骨架（直鏈/支鏈）→ ②官能團位置（OH 在幾號碳）→ ③官能團類型（醇 vs 醚）。\n畫結構時利用對稱性避免重複計數。"},
+ {q:"Le Chatelier 平衡移動",a:"改變條件，平衡向抵消該改變的方向移動\n增壓→向氣體分子少的一邊\n升温→向吸熱方向\n★ 催化劑不移動平衡，只加速到達","explain":"平衡像「彈簧」：你壓它（增壓/加反應物/升温），它就往抵消你動作的方向彈。\n注意：温度變會改 Kc 值；濃度/壓力變不改 Kc 只移動位置；催化劑不參與，只讓平衡更快到達。"},
+ {q:"反應速率影響因素（答題 4 點）",a:"1) 濃度↑ → 碰撞頻率↑\n2) 温度↑ → 動能↑ 有效碰撞↑\n3) 表面積↑ → 接觸↑\n4) 催化劑 → 降活化能\n★ 每題都從碰撞理論解釋才拿滿"},
+ {q:"ΔH 正負與吸放熱",a:"ΔH < 0 放熱（exothermic）\nΔH > 0 吸熱（endothermic）\n★ 燃燒/中和/金屬+酸 多為放熱","explain":"ΔH ≈ 生成物總能量 − 反應物總能量。\n生成物更穩定（能量低）→ ΔH<0 → 多餘能量以熱放出 = 放熱（燃燒/中和/金屬+酸）。\n生成物能量高 → 需吸熱補差 = 吸熱。另一視角：斷鍵吸熱、成鍵放熱，ΔH=斷鍵−成鍵。"},
+ {q:"氣體測試速記",a:"O₂：帶火星木條復燃\nCO₂：石灰水變渾濁\nH₂：點燃有爆鳴\nCl₂：濕潤澱粉碘化鉀試紙變藍\nNH₃：濕潤紅色石蕊變藍"},
+{q:"金屬活性順序與提取三法",a:"K Na Ca Mg Al Zn Fe Pb Cu Ag Au（活性遞減）\n提取：\n1) 很不活潑（Cu 及以後）：天然遊離存在\n2) 中等（Zn–Pb）：碳還原氧化物\n3) 很活潑（K–Al）：電解熔融化合物\n★ 越活潑 = 越易失電子 = 化合物越難還原",explain:"金屬越活潑越易失電子成離子，化合物越穩定、越難還原出單質。\n提取方法本質 = 給金屬「搶回電子」的難度分級：不活潑者天然是單質；中等用碳（奪氧）；活潑的只能電解（電流強給電子）。鐵鏽蝕的犧牲性保護（鋅塊）也是同一邏輯：用更活潑金屬替鐵失電子。"},
+{q:"電解產物預測兩步？",a:"1) 陰極（陽離子放電）：活性序靠後的先放電\nAg⁺ > Cu²⁺ > H⁺（水中 H⁺ 與活性序 H 以前的金屬離子競爭，H⁺ 先出）\n2) 陽極（陰離子放電）：濃滷離子 > OH⁻（稀溶液 OH⁻ 放電出 O₂）\n★ 先列全部離子（含水的 H⁺/OH⁻）再排序",explain:"電解本質是電流強迫得失電子：陰極把電子給「最易得電子」的陽離子（金屬活性序靠後 = 氧化性強先放電）；陽極由「最易失電子」的陰離子放電。\n水也微弱電離出 H⁺/OH⁻ 參與競爭——所以先列出全部離子（別忘了水）再按放電順序排。"},
+{q:"Hess 定律一句話 + 怎麼用",a:"反應焓變只由始態終態決定，與途徑無關\n① 畫循環圖，把目標反應拆成已知 ΔH 的反應\n② ΔH = Σ生成物生成焓 − Σ反應物生成焓\n（或：目標 = 反應物燃燒焓 − 生成物燃燒焓）\n★ 中間物要能對消",explain:"Hess 定律本質是能量守恆：爬兩座山到同一山頂，總海拔變化相同。\n考試套路：題目給若干已知 ΔH（生成焓/燃燒焓），把目標反應通過「加減已知反應」湊出來，中間物抵消；ΔH 按同樣方式加減。卷一兩部分的大題穩定考點。"},
+{"type":"trap","q":"烷烴 vs 烯烴怎麼鑑別？",a:"加溴水（Br₂(aq)）：\n烯烴 → 褪色（加成反應）\n烷烴 → 不褪色\n酸性 KMnO₄：烯烴褪色、烷烴不褪\n🔥 答鑑別題寫「試劑+現象」兩步，缺一不給分",explain:"烯烴含 C=C 雙鍵，能與溴發生加成使溴水褪色；烷烴只含 C−C 單鍵，與溴水不反應。\nKMnO₄ 同理：雙鍵被氧化使紫紅色褪去。\nDSE 鑑別題標準答法永遠兩件套：加什麼試劑 → 看到什麼現象，兩類物質分別寫清。"},
+{q:"可溶鹽 vs 不可溶鹽的製備路線？",a:"可溶鹽：酸 + 鹼/金屬/碳酸鹽/金屬氧化物 → 蒸發結晶\n例：NaCl ← HCl+NaOH；CuSO₄ ← H₂SO₄+CuO\n不可溶鹽：兩種可溶鹽溶液混合 → 沉澱 → 過濾洗滌乾燥\n例：PbI₂ ← Pb(NO₃)₂+KI（用溶解度規則判沉澱）\n★ 先判斷目標鹽可溶否，再選路線",explain:"製鹽先分兩類：可溶鹽走中和/金屬+酸/碳酸鹽+酸，反應後蒸發濃縮結晶；不可溶鹽（PbI₂、AgCl、BaSO₄）靠兩種可溶鹽交換生成沉澱，再過濾洗滌乾燥。\n判斷可溶用溶解性規則：鈉鉀銨鹽全溶、硝酸鹽全溶；氯化物除 AgCl/PbCl₂；硫酸鹽除 BaSO₄/PbSO₄。"},
+{q:"原子結構速算：質子/中子/電子怎麼數？",a:"質子數 Z = 原子序數 = 電子數（中性原子）\n質量數 A = 質子 + 中子 → 中子數 = A − Z\n同位素：質子同、中子不同（化學性質基本相同）\n★ 離子電子數：陽離子 Z − 電荷；陰離子 Z + 電荷",explain:"質子數決定元素種類（原子序數）；質量數 ≈ 相對原子質量取整 = Z + N。\n同位素（¹²C/¹⁴C）質子數相同、化學性質幾乎相同，只是質量不同。\n寫離子時電荷數 = 質子 − 電子 → 電子數 = Z − 電荷。卷一 Part I 送分 MC 區。"},
+{q:"分子極性 + 分子間力怎麼判斷？",a:"鍵極性：兩原子電負性差越大越極性\n分子極性：看鍵極性能否抵消（對稱則非極性）\nCO₂ 直線對稱 → 非極性；H₂O 折線 → 極性\n分子間力：氫鍵 > 偶極-偶極 > 色散力\n★ 氫鍵：分子含 N−H / O−H / F−H 才可能有",explain:"判斷分子極性兩看：鍵有無極性（電負性差）+ 分子形狀能否讓鍵極矩抵消。CO₂ 雖 C=O 極性但直線形反向抵消 → 整體非極性。\n分子間力決定沸點：能形成氫鍵（H₂O）沸點異常高。DSE 常考 H₂O 沸點 vs H₂S。"},
+{q:"常見離子鑑別（QA）速記",a:"陽離子加 NaOH(aq)（看沉澱顏色）：\nCu²⁺ 藍；Fe³⁺ 紅棕；Fe²⁺ 淺綠→白→變紅棕\nAl³⁺ 白沉澱、過量 NaOH 溶解（兩性）\nNH₄⁺ 加鹼加熱 → 濕潤紅石蕊變藍\n陰離子：Cl⁻ 加 HNO₃+AgNO₃ 白沉澱；SO₄²⁻ 加 BaCl₂+HNO₃ 白沉澱；CO₃²⁻ 加酸氣泡（石灰水變濁）\n★ 答「試劑+現象+結論」三段",explain:"QA（定性分析）對應你的選修 XV 分析化學與 SBA：靠特徵反應認離子。\n記憶軸：加 NaOH 看沉澱顏色（Cu 藍 / Fe³⁺ 紅棕 / Al 白且過量溶）、加 AgNO₃ 驗 Cl⁻、加 Ba²⁺ 驗 SO₄²⁻、加酸驗 CO₃²⁻。\n答題永遠是「加什麼 → 看到什麼 → 所以含什麼」。"},
+{q:"常見官能團的反應與鑑別總表",a:"烯烴 C=C：使溴水 / 酸性 KMnO₄ 褪色\n醇 −OH：與 Na 冒泡；可被氧化（K₂Cr₂O₇ 橙→綠）\n羧酸 −COOH：使 NaHCO₃/Na₂CO₃ 冒泡（最快捷鑑別）\n酯 −COO−：有果香；水解成酸 + 醇\n★ 鑑別羧酸：加 NaHCO₃ 看氣泡，獨一無二",explain:"官能團決定性質，DSE 有機物大題考「結構→性質→鑑別」鏈：烯烴測雙鍵用溴水褪色；醇可氧化（伯→醛→酸、仲→酮），酸化 K₂Cr₂O₇ 橙變綠檢測；羧酸有酸性，與碳酸氫鹽冒 CO₂ 是獨有快檢；酯有果香、可水解。\n把「試劑+現象」配對記憶最有效。"},
+ {q:"★ 化學長題答題格式",a:"結論先行 → 方程式/計算 → 解釋\n例：會生成沉澱…方程式…因為離子濃度積超 Ksp\n★ 步驟分按點給，寧可多寫判斷句不寫廢話"},
+ {q:"★ 摩爾計算檢查單",a:"1) 方程式配平沒？摩爾比找對沒？\n2) 體積單位 dm³/cm³\n3) 有效數字跟題目\n4) 最後問的是質量/體積/濃度？別答非所問"},
+ {"type": "trap", "q": "摩爾計算第一殺手是什麼？", "a": "單位！cm³ ÷ 1000 = dm³\n濃度 C = mol/dm³，體積必須 dm³\n🔥 n = C×V 前先看體積單位，錯一半是這裏"},
+ {"type": "trap", "q": "稀釋強酸，pH 會無限升嗎？", "a": "不會！\n強酸稀釋 10 倍 pH +1，但無限稀釋只會趨近 7（水的電離兜底）\n🔥 別算出 pH=9 的酸性溶液"},
+ {"type": "trap", "q": "氧化數判斷三鐵律？", "a": "1) 單質 = 0\n2) F 恆為 −1；O 通常 −2（過氧化物 H₂O₂ 中 −1）\n3) 化合物中各元素氧化數和 = 0（離子 = 電荷）"},
+{"type":"trap","q":"Kc 什麼時候會改變？",a:"Kc 只隨温度改變！\n改變濃度 → 平衡移動但 Kc 不變\n加催化劑 → 不移動平衡、不改變 Kc\n🔥 DSE 必修 Kc 處理均相體系（全 aq 或全 gas）：物種全部寫進表達式",explain:"Kc = 生成物濃度乘積 / 反應物濃度乘積（各濃度取化學計量數次方）。\n它是該温度下的常數：温度變、平衡位置變，Kc 才變。\n臨時改濃度只讓反應移回平衡，Kc 值不變；催化劑同時加快正逆反應，既不移動平衡也不改 Kc。"},
+ {"type": "trap", "q": "燃燒產物檢驗的順序？", "a": "先驗水（無水 CuSO₄ 白→藍），再驗 CO₂（石灰水變渾濁）\n🔥 順序反了會誤判：氣體先通過石灰水會帶走水蒸氣"},
+ {"type": "trap", "q": "催化劑到底改變什麼？", "a": "只降活化能、加速到達平衡\n🔥 不改變平衡位置、不改變平衡常數、不改變產率（只改變達到平衡的時間）"},
+ {"type": "skill", "q": "化學長題動筆前先做什麼？", "a": "1) 圈出方程式，找摩爾比\n2) 標出已知量（m/V/C）\n3) 問什麼（質量/體積/濃度）\n🔥 先搭框架再算，避免算完發現答非所問"},
+ {"type": "skill", "q": "滴定操作兩個必考點？", "a": "1) 錐形瓶用蒸餾水沖洗即可（不能用藥液洗）\n2) 讀數視線與液麪最低處平齊\n3) 重複滴定取平均（剔除明顯異常值）"},
+ {"type": "skill", "q": "離子方程式配平順序？", "a": "先配原子（質量守恆）再配電荷\n🔥 氧化還原：先拆半反應配電子，再合併"},
+ {"type": "skill", "q": "氣體檢驗速記卡", "a": "O₂：帶火星木條復燃\nCO₂：石灰水變渾濁\nH₂：點燃爆鳴聲\nCl₂：濕潤澱粉碘化鉀試紙變藍\nNH₃：濕潤紅色石蕊試紙變藍\nSO₂：使高錳酸鉀褪色"},
+ {"type": "skill", "q": "有效數字怎麼跟？", "a": "跟題目給的最小有效數字（一般 3 位）\n🔥 計算中間過程多保留，最後答案才舍入"},
+ {"type": "skill", "q": "實驗題「重複實驗」的目的怎麼寫？", "a": "取平均值以減少隨機誤差 / 提高結果可靠性\n🔥 和「控制變量」搭配答：自變量梯度 + 其他條件相同 + 重複取平均 = 實驗題滿分三件套"}
 ],
 "bio":[
- {q:"细胞器功能一句话（4 个必考）",a:"粒线体：有氧呼吸产 ATP\n叶绿体：光合作用\n核糖体：蛋白质合成\n细胞膜：选择透过性屏障"},
- {q:"扩散 / 渗透 / 主动转运区别",a:"扩散：顺浓度梯度、不需能量\n渗透：水分子过选择性透过膜\n主动转运：逆梯度、需能量(ATP)+载体\n★ 葡萄糖进细胞=协助扩散/主动，视情况","explain":"渗透的关键：细胞膜是半透膜，水能过、大溶质不能。\n水永远从「水多（溶质少）」流向「水少（溶质多）」直到平衡。\n所以细胞放浓盐水里：外面溶质多水少 → 细胞失水皱缩；放清水里 → 吸水膨胀。"},
- {q:"光合作用总反应 + 两阶段",a:"6CO₂ + 6H₂O →(光) C₆H₁₂O₆ + 6O₂\n光反应（类囊体）：产 ATP+NADPH+O₂\n暗反应/卡尔文循环（基质）：CO₂ 固定 → C₆H₁₂O₆","explain":"光反应（类囊体膜上）：用光能拆水 → 产生 O₂、ATP、NADPH。\n暗反应/卡尔文循环（基质）：用 ATP、NADPH 把 CO₂ 还原成葡萄糖。\n关键：O₂ 全部来自水而不是 CO₂（同位素实验证实）。暗反应不直接需光，但光一停 ATP/NADPH 断供，它也会停。"},
- {q:"有氧呼吸总反应 + 步骤",a:"C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP\n糖酵解(细胞质) → 克雷布斯循环(粒线体基质) → 电子传递链(内膜)","explain":"呼吸 = 把葡萄糖的化学能「逐步」释放装进 ATP（一次烧掉会全变热浪费）。\n糖酵解在细胞质、不需氧；有氧时进粒线体：克雷布斯循环 + 电子传递链——氧是电子链最终受体，没氧链就堵住，只能停在无氧阶段。\n所以总反应像「缓慢燃烧」：C₆H₁₂O₆+6O₂→6CO₂+6H₂O+ATP。"},
- {q:"酶的特性 + 失活 vs 抑制",a:"专一性、高效性、可重复使用\n高温/强酸碱 → 变性失活（永久）\n低温 → 活性降低（可逆）\n★ 最适温度/最适 pH 曲线要会画","explain":"酶是蛋白质，靠特定空间结构（活性部位）工作。\n低温：分子动能低、碰撞慢，活性低但结构完好 → 升温即恢复。\n高温/强酸碱：破坏空间结构 = 变性，活性部位没了 → 不可逆失活。"},
- {q:"DNA 碱基配对 + 结构",a:"A−T、G−C（氢键）\n双螺旋、磷酸-脱氧核糖骨架在外\n★ 若 A=30% 则 T=30%、G=C=20%（双链）","explain":"A−T 两个氢键、G−C 三个氢键；嘌呤（双环）必须配嘧啶（单环），双螺旋宽度才均匀。\n所以双链 DNA 必满足 A=T、G=C（查加夫定律）：A 占 30% 则 T=30%、G=C=20%。"},
- {q:"中心法则：转录 vs 翻译",a:"转录：DNA → mRNA（细胞核）\n翻译：mRNA → 蛋白质（核糖体，tRNA 搬运氨基酸）\n密码子 = mRNA 上 3 个碱基","explain":"DNA 是总图纸、在核里出不去 → 把信息抄到 mRNA = 转录（核内）。\nmRNA 出核到核糖体当施工单；tRNA 当搬运工，按 mRNA 每 3 个碱基（密码子）搬对应氨基酸 = 翻译。\n方向：DNA→RNA→蛋白质；一个密码子对应一个氨基酸。"},
- {q:"孟德尔分离律一句话",a:"等位基因在形成配子时彼此分离，各配子只带一个\n★ 杂合 Aa 自交 → 表型 3:1、基因型 1:2:1","explain":"体细胞有两份基因（等位基因，如 Aa），形成配子时两份分开，每个配子只带一份。\n受精时父母各给一份重新配对：Aa×Aa → 配子 A/a × A/a → AA:Aa:aa = 1:2:1 → 显性表型 : 隐性 = 3:1。"},
- {q:"显性/隐性怎么判断（遗传题第一步）",a:"两无（正常）生有（患病）= 隐性\n两有生无 = 显性（少见）\n★ 先判显隐再标基因型，家族系谱图必用","explain":"看「无中生有」：父母都没病、却生出有病的孩子 → 病必为隐性（父母都是携带者 Aa×Aa → aa）。\n反过来「有中生无」：父母都有病却生正常孩子 → 病为显性。\n先判显隐、再标基因型，是系谱图第一步。"},
- {q:"血糖调节：胰岛素 vs 胰高血糖素",a:"血糖↑ → 胰岛素（降糖：促摄取/糖原合成）\n血糖↓ → 胰高血糖素（升糖：糖原分解）\n★ 负反馈调节，答题写完整回路"},
- {q:"神经元传导与突触传递",a:"动作电位沿轴突传导\n突触：电信号 → 化学（神经递质）→ 电信号\n递质在突触间隙扩散、被酶分解或回收","explain":"冲动 = 膜上离子流动的电信号，沿轴突快速传导。\n到突触（两神经元间隙）电信号过不去 → 突触小泡释放化学递质 → 递质扩散过间隙 → 激活下一神经元再变电信号。\n所以突触是「电→化学→电」转接站，也是药物/毒物作用的靶点。"},
- {q:"非特异性 vs 特异性免疫",a:"非特异：皮肤/吞噬细胞/发炎（无记忆）\n特异：B 细胞→抗体（体液）；T 细胞→杀伤（细胞）\n二次应答更快更强（记忆细胞）","explain":"第一二道防线（皮肤/吞噬/发炎）不分敌我 = 非特异、快。\n第三道防线（淋巴细胞）认特定病原 = 特异、慢但准、有记忆。\nB 细胞 → 浆细胞产抗体（体液，对付细胞外病原）；被感染细胞靠 T 杀伤细胞（细胞免疫）。\n二次感染时记忆细胞快速响应 = 疫苗原理。"},
- {q:"肾脏与渗透调节",a:"肾单位：肾小球滤过 → 肾小管重吸收\nADH↑ → 重吸收水↑ → 尿少尿浓\n★ 恒定性 homeostasis 答题套路：刺激→感受→调节→效应→恢复"},
- {q:"★ 生物长题答题结构",a:"定义 → 机制/过程 → 联系题目数据 → 结论\n例：…因为温度升高使酶变性…所以反应速率下降\n★ 生物是英文作答：关键词拼对 + 句子完整"},
- {q:"★ 实验设计题万能框架",a:"目的 → 假设 → 变量（自变量/因变量/控制变量）→ 对照 → 步骤 → 预测结果\n★ 控制变量写具体：同种、同龄、同量…"},
- {q:"★ 生态题高频点",a:"能量沿食物链单向流动、逐级递减（10%）\n碳循环：光合固定 / 呼吸释放 / 化石燃料\n★ 写箭头：生产者→消费者，方向别画反"},
- {"type": "trap", "q": "暗反应需要光吗？（最经典陷阱）", "a": "暗反应（卡尔文循环）本身不需要光，但需要光反应提供的 ATP 和 NADPH\n🔥 光一停，暗反应也会停（原料断供）"},
- {"type": "trap", "q": "渗透作用中水往哪里流？", "a": "水往溶质浓度高（水势低）的一侧流\n🔥 说浓度时指溶质浓度：糖水浓 → 水被吸过去"},
- {"type": "trap", "q": "低温 vs 高温对酶的影响一样吗？", "a": "不一样！\n低温：活性降低，可逆，升温恢复\n高温：变性（空间结构破坏），不可逆\n🔥 答 denaturation 一定是高温/强酸碱"},
- {"type": "trap", "q": "「生男孩患病的概率」怎么算？", "a": "先算患病概率，再 × 1/2（性别）\n🔥 和「患病孩子中男孩概率」不同——后者不用乘 1/2"},
- {"type": "trap", "q": "无氧呼吸一点 ATP 都不产吗？", "a": "产！糖酵解阶段仍产少量 ATP（净 2 ATP）\n🔥 无氧只是没有后续阶段，不是零能量"},
- {"type": "trap", "q": "抗体由什么细胞分泌？", "a": "浆细胞（效应 B 细胞）分泌抗体\n记忆 B 细胞不直接分泌，它负责二次应答快速分化\n🔥 答题写 plasma cell 才得分"},
- {"type": "skill", "q": "生物 Essay 开头怎么写？", "a": "第一句给核心术语下定义（拿定义分）\n例：Homeostasis is the maintenance of a relatively constant internal environment…\n🔥 定义 → 机制 → 联系数据 → 结论，结构分稳拿"},
- {"type": "skill", "q": "实验设计题五要素？", "a": "目的 → 假设 → 自变量/因变量/控制变量 → 对照组 → 预测\n自变量设梯度（如 3 个温度）\n每组重复多次取平均\n🔥 控制变量写具体：同种、同龄、同量"},
- {"type": "skill", "q": "图表题答题套路？", "a": "1) 读轴：x/y 各是什么\n2) 描述趋势：随…增加而…\n3) 比较：A 组 vs B 组\n4) 解释：用生物学原理说明为什么\n🔥 只描述不解释 = 丢一半分"},
- {"type": "skill", "q": "遗传系谱图第一步？", "a": "1) 判显隐性：无中生有=隐性；有中生无=显性\n2) 标基因型：从患者倒推\n3) 注意 carrier（携带者）不患病但带致病基因\n🔥 先写「该病为隐性遗传」再继续"},
- {"type": "skill", "q": "能量流动题陷阱？", "a": "看清 10% 传递方向：上一营养级 → 下一营养级\n问「流向下一级」还是「流向分解者」\n🔥 每个箭头都标能量值再算，别用总量直接乘"},
- {"type": "skill", "q": "自变量 vs 控制变量一句话分", "a": "自变量 = 你故意改变的\n控制变量 = 你保持不变、确保公平的\n🔥 答题模板：改变的是 X，保持不变的是温度/光照/水量等"}
+ {q:"細胞器功能一句話（4 個必考）",a:"粒線體：有氧呼吸產 ATP\n葉綠體：光合作用\n核糖體：蛋白質合成\n細胞膜：選擇透過性屏障"},
+ {q:"擴散 / 滲透 / 主動轉運區別",a:"擴散：順濃度梯度、不需能量\n滲透：水分子過選擇性透過膜\n主動轉運：逆梯度、需能量(ATP)+載體\n★ 葡萄糖進細胞=協助擴散/主動，視情況","explain":"滲透的關鍵：細胞膜是半透膜，水能過、大溶質不能。\n水永遠從「水多（溶質少）」流向「水少（溶質多）」直到平衡。\n所以細胞放濃鹽水裏：外面溶質多水少 → 細胞失水皺縮；放清水裏 → 吸水膨脹。"},
+ {q:"光合作用總反應 + 兩階段",a:"6CO₂ + 6H₂O →(光) C₆H₁₂O₆ + 6O₂\n光反應（類囊體）：產 ATP+NADPH+O₂\n暗反應/卡爾文循環（基質）：CO₂ 固定 → C₆H₁₂O₆","explain":"光反應（類囊體膜上）：用光能拆水 → 產生 O₂、ATP、NADPH。\n暗反應/卡爾文循環（基質）：用 ATP、NADPH 把 CO₂ 還原成葡萄糖。\n關鍵：O₂ 全部來自水而不是 CO₂（同位素實驗證實）。暗反應不直接需光，但光一停 ATP/NADPH 斷供，它也會停。"},
+ {q:"有氧呼吸總反應 + 步驟",a:"C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP\n糖酵解(細胞質) → 克雷布斯循環(粒線體基質) → 電子傳遞鏈(內膜)","explain":"呼吸 = 把葡萄糖的化學能「逐步」釋放裝進 ATP（一次燒掉會全變熱浪費）。\n糖酵解在細胞質、不需氧；有氧時進粒線體：克雷布斯循環 + 電子傳遞鏈——氧是電子鏈最終受體，沒氧鏈就堵住，只能停在無氧階段。\n所以總反應像「緩慢燃燒」：C₆H₁₂O₆+6O₂→6CO₂+6H₂O+ATP。"},
+ {q:"酶的特性 + 失活 vs 抑制",a:"專一性、高效性、可重複使用\n高温/強酸鹼 → 變性失活（永久）\n低温 → 活性降低（可逆）\n★ 最適温度/最適 pH 曲線要會畫","explain":"酶是蛋白質，靠特定空間結構（活性部位）工作。\n低温：分子動能低、碰撞慢，活性低但結構完好 → 升温即恢復。\n高温/強酸鹼：破壞空間結構 = 變性，活性部位沒了 → 不可逆失活。"},
+ {q:"DNA 鹼基配對 + 結構",a:"A−T、G−C（氫鍵）\n雙螺旋、磷酸-脱氧核糖骨架在外\n★ 若 A=30% 則 T=30%、G=C=20%（雙鏈）","explain":"A−T 兩個氫鍵、G−C 三個氫鍵；嘌呤（雙環）必須配嘧啶（單環），雙螺旋寬度才均勻。\n所以雙鏈 DNA 必滿足 A=T、G=C（查加夫定律）：A 佔 30% 則 T=30%、G=C=20%。"},
+ {q:"中心法則：轉錄 vs 翻譯",a:"轉錄：DNA → mRNA（細胞核）\n翻譯：mRNA → 蛋白質（核糖體，tRNA 搬運氨基酸）\n密碼子 = mRNA 上 3 個鹼基","explain":"DNA 是總圖紙、在核裏出不去 → 把信息抄到 mRNA = 轉錄（核內）。\nmRNA 出核到核糖體當施工單；tRNA 當搬運工，按 mRNA 每 3 個鹼基（密碼子）搬對應氨基酸 = 翻譯。\n方向：DNA→RNA→蛋白質；一個密碼子對應一個氨基酸。"},
+ {q:"孟德爾分離律一句話",a:"等位基因在形成配子時彼此分離，各配子只帶一個\n★ 雜合 Aa 自交 → 表型 3:1、基因型 1:2:1","explain":"體細胞有兩份基因（等位基因，如 Aa），形成配子時兩份分開，每個配子只帶一份。\n受精時父母各給一份重新配對：Aa×Aa → 配子 A/a × A/a → AA:Aa:aa = 1:2:1 → 顯性表型 : 隱性 = 3:1。"},
+ {q:"顯性/隱性怎麼判斷（遺傳題第一步）",a:"兩無（正常）生有（患病）= 隱性\n兩有生無 = 顯性（少見）\n★ 先判顯隱再標基因型，家族系譜圖必用","explain":"看「無中生有」：父母都沒病、卻生出有病的孩子 → 病必為隱性（父母都是攜帶者 Aa×Aa → aa）。\n反過來「有中生無」：父母都有病卻生正常孩子 → 病為顯性。\n先判顯隱、再標基因型，是系譜圖第一步。"},
+ {q:"血糖調節：胰島素 vs 胰高血糖素",a:"血糖↑ → 胰島素（降糖：促攝取/糖原合成）\n血糖↓ → 胰高血糖素（升糖：糖原分解）\n★ 負反饋調節，答題寫完整迴路"},
+ {q:"神經元傳導與突觸傳遞",a:"動作電位沿軸突傳導\n突觸：電信號 → 化學（神經遞質）→ 電信號\n遞質在突觸間隙擴散、被酶分解或回收","explain":"衝動 = 膜上離子流動的電信號，沿軸突快速傳導。\n到突觸（兩神經元間隙）電信號過不去 → 突觸小泡釋放化學遞質 → 遞質擴散過間隙 → 激活下一神經元再變電信號。\n所以突觸是「電→化學→電」轉接站，也是藥物/毒物作用的靶點。"},
+ {q:"非特異性 vs 特異性免疫",a:"非特異：皮膚/吞噬細胞/發炎（無記憶）\n特異：B 細胞→抗體（體液）；T 細胞→殺傷（細胞）\n二次應答更快更強（記憶細胞）","explain":"第一二道防線（皮膚/吞噬/發炎）不分敵我 = 非特異、快。\n第三道防線（淋巴細胞）認特定病原 = 特異、慢但準、有記憶。\nB 細胞 → 漿細胞產抗體（體液，對付細胞外病原）；被感染細胞靠 T 殺傷細胞（細胞免疫）。\n二次感染時記憶細胞快速響應 = 疫苗原理。"},
+{q:"腎臟與滲透調節（屬選修 V，按選修組合取捨）",a:"腎單位：腎小球濾過 → 腎小管重吸收\nADH↑ → 重吸收水↑ → 尿少尿濃\n★ 恆定性 homeostasis 答題套路：刺激→感受→調節→效應→恢復",explain:"【選修 V 內容，非必修】若你的選修不含 V（人體生理：調節與控制），此卡可跳過。\n滲透調節核心：腎小球濾出原尿 → 腎小管按身體需要選擇性重吸收 → ADH（抗利尿激素）多則重吸收水多、尿少尿濃；ADH 少則尿多尿稀。"},
+{q:"有絲分裂 vs 減數分裂 3 個關鍵差異",a:"1) 分裂次數：有絲 1 次；減數 2 次（連續）\n2) 子細胞：有絲 2 個 2n 相同細胞；減數 4 個 n 配子\n3) 意義：有絲 = 生長/修復；減數 = 產配子 + 遺傳變異\n★ 染色體減半發生在減數Ⅰ（同源染色體分離）",explain:"有絲分裂：複製一次、分裂一次，染色體數不變（2n→2n），用於生長與修復。\n減數分裂：複製一次、連續分裂兩次——減數Ⅰ 同源分開、減數Ⅱ 姐妹染色單體分開 → 染色體減半（2n→n），產生配子。\n遺傳多樣性的源頭在減數Ⅰ：同源染色體自由組合與交叉互換。DSE 每年高佔比。"},
+{q:"澱粉 / 蛋白質 / 脂肪的消化部位和酶？",a:"澱粉：口腔（唾液澱粉酶）→ 小腸（麥芽糖酶）→ 葡萄糖\n蛋白質：胃（胃蛋白酶）→ 小腸（胰蛋白酶/肽酶）→ 氨基酸\n脂肪：小腸（膽汁乳化 + 脂肪酶）→ 脂肪酸 + 甘油\n🔥 膽汁不含酶！作用是物理乳化",explain:"消化 = 大分子拆小分子才能被吸收：澱粉→葡萄糖、蛋白質→氨基酸、脂肪→脂肪酸+甘油。\n每類食物有專屬酶與部位：口腔只處理澱粉、胃只啓動蛋白質、脂肪全在小腸（膽汁先乳化增大表面積，脂肪酶再化學分解）。\n「膽汁不是酶」是最經典陷阱。"},
+{q:"肺泡適應氣體交換的結構特點？",a:"1) 壁薄（單層上皮）→ 擴散距離短\n2) 表面積大（肺泡數量多）→ 擴散快\n3) 表面濕潤 → 氣體先溶解再擴散\n4) 豐富毛細血管網 → 維持濃度梯度\n★ 答「結構-功能配合」：結構特點 + 它如何幫助交換",explain:"氣體交換靠擴散，效率由面積、膜厚、濃度差決定：肺泡多 = 面積大；壁薄 = 距離短；濕潤 + 毛細血管血流不斷帶走 O₂ = 保持濃度梯度不飽和。\n答題模板「因為…所以…」（因為壁薄所以擴散距離短）才拿滿結構功能分。"},
+{"type":"trap","q":"疫苗為什麼能預防疾病？",a:"疫苗 = 滅活/減毒病原體（提供抗原）\n第一次接種：引發初級應答，產生記憶細胞（不致病）\n真感染時：記憶細胞快速增殖 → 二次應答更快更強\n🔥 疫苗是抗原不是抗體",explain:"免疫記憶是特異性免疫核心：B/T 細胞遇抗原後會留一批長壽記憶細胞。\n疫苗用無害抗原「預演」一次讓身體先有記憶；真病原入侵時記憶細胞幾天內大量產抗體，病原還沒擴散就被清掉（初次感染需一兩週才夠量）。\n所以疫苗作用 = 搶時間，不是直接殺病原。"},
+{q:"心臟與雙循環：血液路徑一句話？",a:"體循環：左心室 → 主動脈 → 全身 → 腔靜脈 → 右心房\n肺循環：右心室 → 肺動脈 → 肺 → 肺靜脈 → 左心房\n★ 左心室泵全身；肺動脈是唯一帶缺氧血的動脈",explain:"雙循環 = 血液兩次經過心臟：體循環送氧到全身、肺循環去肺換氧。\n口訣「左室→全身→右房，右室→肺→左房」。\n兩個高頻坑：肺動脈雖叫動脈但流缺氧血；肺靜脈流富氧血。左心全富氧、右心全缺氧。"},
+{q:"木質部 vs 韌皮部運輸什麼？",a:"木質部（xylem）：根→葉 向上運水 + 礦質\n動力 = 蒸騰拉力\n韌皮部（phloem）：葉→各處 運有機物（蔗糖/氨基酸）\n★ 環剝樹皮切斷韌皮部 → 有機物堆積環剝處上方",explain:"植物兩套運輸管：木質部運水與礦質（單向向上，靠葉面蒸騰的拉力把水柱吸上去）；韌皮部運光合產物（從葉「源」到根果「庫」，可雙向）。\n實驗記憶：樹皮環剝傷韌皮部，上方膨大 = 有機物運不下去。"},
+{q:"自然選擇 vs 用進廢退一句話分",a:"自然選擇：個體有變異 → 環境篩選 → 有利變異個體存活繁殖更多 → 有利基因頻率上升\n★ 變異隨機產生、選擇定向；進化 = 種羣基因頻率改變",explain:"自然選擇四步：過度繁殖 → 個體間變異 → 生存鬥爭 → 適者生存並遺傳。\n關鍵：變異不是生物「想要」才變（拉馬克用進廢退是錯的），變異隨機、環境負責篩。\n抗生素耐藥菌是現成例子：細菌羣體本有少數耐藥變異，抗生素殺光敏感菌，耐藥菌存活繁衍 → 菌羣整體耐藥。"},
+{"type":"trap","q":"抗生素為什麼不能濫用？（進化解釋）",a:"濫用抗生素 = 對細菌羣體施加強大選擇壓力\n少數耐藥變異細菌存活 → 大量繁殖 → 耐藥菌株擴散\n🔥 抗生素殺細菌不殺病毒（感冒病毒無效）\n耐藥是「被選擇」不是細菌「學會」",explain:"細菌羣體裏總有極少數帶耐藥基因的變異個體。抗生素殺死敏感菌，耐藥菌存活繁殖 → 下一代以耐藥菌為主。\n這就是自然選擇演示：藥物是選擇壓力，不是誘變劑。\n所以按療程用完、不自行停藥、不濫用 = 減少選擇壓力。抗生素對病毒（感冒/流感）無效。（免疫必修常結合考）"},
+ {q:"★ 生物長題答題結構",a:"定義 → 機制/過程 → 聯繫題目數據 → 結論\n例：…因為温度升高使酶變性…所以反應速率下降\n★ 生物是英文作答：關鍵詞拼對 + 句子完整"},
+ {q:"★ 實驗設計題萬能框架",a:"目的 → 假設 → 變量（自變量/因變量/控制變量）→ 對照 → 步驟 → 預測結果\n★ 控制變量寫具體：同種、同齡、同量…"},
+ {q:"★ 生態題高頻點",a:"能量沿食物鏈單向流動、逐級遞減（10%）\n碳循環：光合固定 / 呼吸釋放 / 化石燃料\n★ 寫箭頭：生產者→消費者，方向別畫反"},
+ {"type": "trap", "q": "暗反應需要光嗎？（最經典陷阱）", "a": "暗反應（卡爾文循環）本身不需要光，但需要光反應提供的 ATP 和 NADPH\n🔥 光一停，暗反應也會停（原料斷供）"},
+ {"type": "trap", "q": "滲透作用中水往哪裏流？", "a": "水往溶質濃度高（水勢低）的一側流\n🔥 説濃度時指溶質濃度：糖水濃 → 水被吸過去"},
+ {"type": "trap", "q": "低温 vs 高温對酶的影響一樣嗎？", "a": "不一樣！\n低温：活性降低，可逆，升温恢復\n高温：變性（空間結構破壞），不可逆\n🔥 答 denaturation 一定是高温/強酸鹼"},
+ {"type": "trap", "q": "「生男孩患病的概率」怎麼算？", "a": "先算患病概率，再 × 1/2（性別）\n🔥 和「患病孩子中男孩概率」不同——後者不用乘 1/2"},
+ {"type": "trap", "q": "無氧呼吸一點 ATP 都不產嗎？", "a": "產！糖酵解階段仍產少量 ATP（淨 2 ATP）\n🔥 無氧只是沒有後續階段，不是零能量"},
+ {"type": "trap", "q": "抗體由什麼細胞分泌？", "a": "漿細胞（效應 B 細胞）分泌抗體\n記憶 B 細胞不直接分泌，它負責二次應答快速分化\n🔥 答題寫 plasma cell 才得分"},
+ {"type": "skill", "q": "生物 Essay 開頭怎麼寫？", "a": "第一句給核心術語下定義（拿定義分）\n例：Homeostasis is the maintenance of a relatively constant internal environment…\n🔥 定義 → 機制 → 聯繫數據 → 結論，結構分穩拿"},
+ {"type": "skill", "q": "實驗設計題五要素？", "a": "目的 → 假設 → 自變量/因變量/控制變量 → 對照組 → 預測\n自變量設梯度（如 3 個温度）\n每組重複多次取平均\n🔥 控制變量寫具體：同種、同齡、同量"},
+ {"type": "skill", "q": "圖表題答題套路？", "a": "1) 讀軸：x/y 各是什麼\n2) 描述趨勢：隨…增加而…\n3) 比較：A 組 vs B 組\n4) 解釋：用生物學原理説明為什麼\n🔥 只描述不解釋 = 丟一半分"},
+ {"type": "skill", "q": "遺傳系譜圖第一步？", "a": "1) 判顯隱性：無中生有=隱性；有中生無=顯性\n2) 標基因型：從患者倒推\n3) 注意 carrier（攜帶者）不患病但帶致病基因\n🔥 先寫「該病為隱性遺傳」再繼續"},
+ {"type": "skill", "q": "能量流動題陷阱？", "a": "看清 10% 傳遞方向：上一營養級 → 下一營養級\n問「流向下一級」還是「流向分解者」\n🔥 每個箭頭都標能量值再算，別用總量直接乘"},
+ {"type": "skill", "q": "自變量 vs 控制變量一句話分", "a": "自變量 = 你故意改變的\n控制變量 = 你保持不變、確保公平的\n🔥 答題模板：改變的是 X，保持不變的是温度/光照/水量等"}
 ],
 "econ":[
- {q:"Scarcity → Choice → Opportunity Cost",a:"稀缺性迫使选择；选择的代价 = 放弃的最高价值选项\n★ 机会成本不是所有放弃的加总，是最高那一个","explain":"资源有限所以要选；选了 A 就得放弃 B/C/D。\n机会成本 = 放弃选项中「价值最高」的那一个，不是把所有放弃的加起来——你只失去最好的替代。\n例：晚上学习，放弃看剧和打游戏，机会成本是你更想做的那个（看剧）。"},
- {q:"Demand 与 Supply 的移动 vs 沿曲线",a:"价格变 → 沿曲线移动（quantity demanded/supplied）\n其他因素变 → 整条曲线移动（demand/supply）\n★ 答方向题先判断是移动还是滑动","explain":"需求曲线画的是「价格 vs 需求量」。\n价格自己变 → 在这条线上滑动（quantity demanded 变）。\n价格以外因素变（收入/偏好/替代品价格）→ 整条线搬家（demand 变）。\n判断口诀：变的变量是价格 → 沿曲线；不是价格 → 移曲线。"},
- {q:"均衡价格：短缺与盈余",a:"P 高于均衡 → 盈余（supply 过剩）→ 价格↓\nP 低于均衡 → 短缺 → 价格↑\n★ 画图：交点就是均衡，先画图再写字","explain":"价格是自动调节器：\n定太高 → 卖不完（盈余）→ 卖家降价；定太低 → 买不到（短缺）→ 买家抬价。\n只有均衡价 Pₑ 使需求量 = 供给量（市场出清）。\n画图：价格在均衡上方是盈余、下方是短缺，差距是水平距离。"},
- {q:"PED 公式 + 与总收益关系",a:"PED = %ΔQd / %ΔP（取绝对值）\n|PED|>1 弹性大：降价→总收益↑\n|PED|<1 缺乏弹性：降价→总收益↓\n★ 必需品/无替代/占比小 → 缺乏弹性","explain":"总收益 = 价格 × 数量。降价 → 每件少赚但卖得多。\n|PED|>1（弹性大）：多卖的效果盖过单价损失 → 总收益上升。\n|PED|<1（弹性小）：买家不敏感，降价卖不多 → 总收益下降。\n奢侈品弹性大、必需品弹性小。"},
- {q:"消费者盈余与生产者盈余",a:"CS = 愿付价 − 实付价（需求曲线下、价格线上）\nPS = 实收价 − 愿收价（价格线下、供给曲线上）\n★ 征税/价格管制后，两盈余变化是 DSE 爱考图"},
- {q:"固定成本 vs 可变成本",a:"FC：不随产量变（租金）\nVC：随产量变（原材料）\nTC = FC + VC；AC = TC/Q\n★ 短期的概念，长期没有固定成本"},
- {q:"规模经济（Economies of Scale）",a:"产量↑ → 平均成本↓ 的原因：专业化分工、大批量采购折扣、技术设备\n★ 与规模不经济（管理困难）成对考"},
- {q:"完全竞争 vs 垄断 关键差异",a:"完全竞争：价格接受者（price taker）、自由进出、长期零经济利润\n垄断：价格制定者、有进入壁垒、可长期赚经济利润\n★ MC=MR 是两者共同的利润最大化条件","explain":"完全竞争：企业多到每家都是价格接受者（水平需求线），自由进出 → 长期经济利润归零。\n垄断：一家独大、有进入壁垒 → 面对整条向下需求线，可长期赚经济利润。\n共同点：都按 MR = MC 定产量；垄断再按需求曲线定高价。"},
- {q:"外部性 + 政府对策",a:"负外部性（污染）：私人成本 < 社会成本 → 产量过多\n对策：庇古税 / 配额 / 规管\n正外部性（教育）：补贴 / 政府提供","explain":"外部性 = 你的行为影响无关第三方却没付/没收费。\n负外部性（排污）：私人成本 < 社会成本 → 生产过多 → 用庇古税/配额「内部化」。\n正外部性（教育/疫苗）：私人收益 < 社会收益 → 生产过少 → 补贴鼓励。\n图上是 MPC/MSB 与 MSC 的差距。"},
- {q:"GDP 是什么？（必背定义）",a:"GDP = 本地生产总值：某时期内本地生产的所有最终货物与服务的市场总值\n★ 注意：最终品不重复计中间品；二手货不计；只计本地生产","explain":"GDP 四个条件缺一不可：①当期生产（不是卖二手）②最终品（面粉→面包只算面包，避免重复）③本地生产（港人在内地厂生产不算）④市场价值（自己做饭不算）。\n所以二手交易、中间品、家务、非法活动都不计。"},
- {q:"CPI 通胀怎么算",a:"CPI = (当期一篮子价格 / 基期价格) × 100\n通胀率 = (CPI当期 − CPI前期)/CPI前期 × 100%\n★ 一篮子固定，权重按消费占比"},
- {q:"失业类型 3 种",a:"摩擦性：转工间隙\n结构性：技能与职位不匹配\n周期性：经济下行需求不足\n★ 自然失业率 = 摩擦 + 结构","explain":"摩擦性：换工作的正常间隙（经济健康也有）。\n结构性：技能与职位不匹配（产业转型，旧技能失业）。\n周期性：经济衰退、总需求不足 → 政府用扩张政策（财政/货币）压它。\n自然失业率 = 摩擦 + 结构；周期性才是政策能治的。"},
- {q:"AD-AS 宏观均衡",a:"AD 下倾（消费/投资/政府/净出口）\nAS 上倾；LRAS 垂直（潜在产出）\n★ 财政政策移动 AD：减税/增支 → AD 右移","explain":"AD = 消费+投资+政府支出+净出口。AD 右移 → 短期产出↑ 物价↑。\nAS 短期上斜（价格高愿意多产），长期垂直（经济已达潜在产出，价再高也产不出更多）。\n所以刺激政策短期提产出、长期只推高物价——这就是为什么长期看货币政策中性。"},
- {q:"财政政策 vs 货币政策",a:"财政：政府税收 + 支出（预算案）\n货币：金管局调整利率/货币供应\n★ 答政策题：写工具 → 写对 AD 影响 → 写对产出物价影响","explain":"财政 = 政府收支（税收/开支），政府预算决策，直接动 AD 的 G 和影响 C。\n货币 = 央行管货币供应/利率，影响投资。\n香港是联系汇率 → 金管局不能自由调利率（要跟美息）→ 货币政策空间小，财政政策更常用——香港特色常考。"},
- {q:"比较优势与自由贸易",a:"比较优势：机会成本较低的一方生产该品\n贸易利益：两国按比较优势分工 → 总产量↑双方受益\n★ 先算机会成本再下结论"},
- {q:"汇率升/贬值的影响",a:"本币升值：进口便宜、出口变贵（净出口↓）\n本币贬值：出口竞争力↑、进口贵（或通胀压力）\n★ 联系旅游业/留学的例子最好答"},
- {q:"★ 经济答题三步模板（必用）",a:"Definition（定义术语）→ Explanation（解释机制）→ Diagram/Example（画图或举例）\n★ 长题每问都按三步走，结构分稳拿"},
- {q:"★ Diagram 必画清单",a:"供求均衡、PED 与总收益、税收负担分摊、价格上限/下限、外部性、AD-AS、汇率\n★ 每周画熟 3 个，考试直接默写"},
- {"type": "trap", "q": "价格下降，Demand 曲线动吗？", "a": "不动！价格变 → 沿需求曲线移动（quantity demanded）\n只有非价格因素变才整条曲线移\n🔥 这是经济卷一最常考的概念区分"},
- {"type": "trap", "q": "弹性大，降价一定增收吗？", "a": "是：|PED|>1 弹性大 → 降价 → 总收益增加\n|PED|<1 缺乏弹性 → 降价 → 总收益反而减少\n🔥 方向题先写 |PED| 与 1 的关系再下结论"},
- {"type": "trap", "q": "机会成本是「所有放弃的加起来」吗？", "a": "不是！是放弃的选项中价值最高的那一个\n🔥 只选最高，不是加总"},
- {"type": "trap", "q": "哪些不计入 GDP？（高频）", "a": "1) 中间品（避免重复计算）\n2) 二手货交易\n3) 非市场活动（家务/自用）\n4) 非法活动\n🔥 只算当期最终品 + 本地生产"},
- {"type": "trap", "q": "本币升值的影响，只答一边扣分吗？", "a": "会！升值 = 出口竞争力↓ + 进口变便宜（净出口↓）\n🔥 双边都答：对出口、对进口、对旅游收支各一句"},
- {"type": "trap", "q": "通胀中谁是受益者？", "a": "固定利率借款人（债务人）受益——还的钱实际购买力下降\n债权人/固定收入者受损\n🔥 关键限定词：固定利率 + 意料之外的通胀"},
- {"type": "skill", "q": "经济长题万能三步？", "a": "① Definition：定义题中术语（拿定义分）\n② Explanation：解释机制/因果\n③ Diagram or Example：画图或举例\n🔥 每问都走三步，结构分不丢"},
- {"type": "skill", "q": "画供求图第一步？", "a": "先标轴：纵轴 P（價格）、横轴 Q（數量）\n再画 D、S 曲线，交点标均衡 E 和 Pₑ、Qₑ\n🔥 轴标签画错整题没分，先轴后线"},
- {"type": "skill", "q": "见到 government policy 先判断什么？", "a": "先分 fiscal（税收/政府支出）还是 monetary（利率/货币供应）\n再写：工具 → 对 AD 影响 → 对产出物价影响\n🔥 港币是联系汇率，货币政策写金管局"},
- {"type": "skill", "q": "「效率」题怎么答才拿满分？", "a": "社会总盈余（消费者盈余+生产者盈余）最大化\n或 边际利益 = 边际成本（MB=MC）\n🔥 别只写「资源有效配置」，要写机制"},
- {"type": "skill", "q": "比较优势题三步", "a": "1) 列表：每人/每国生产两种产品的产量\n2) 算机会成本（放弃量/获得量）\n3) 机会成本低者生产该产品，分工交易双方受益"},
- {"type": "skill", "q": "宏观数据题答题顺序？", "a": "先算变化率（(新−旧)/旧 ×100%）\n再与去年同期比\n最后用 AD-AS 解释原因\n🔥 有数字必引用：GDP 升了 X% 说明…"}
+{q:"稀少性 → 選擇 → 機會成本（Scarcity → Choice → Opportunity Cost）",a:"資源有限（稀少性）→ 被迫選擇 → 選擇的代價 = 放棄的最高價值選項\n★ 機會成本不是所有放棄加總，是最高那一個",explain:"資源有限所以要選；選了 A 就得放棄 B/C/D。\n機會成本 = 放棄選項中「價值最高」的那一個，不是把所有放棄的加起來——你只失去最好的替代。\n例：晚上學習，放棄看劇和打遊戲，機會成本是你更想做的那個（看劇）。"},
+{q:"需求（Demand）與供應（Supply）的變動：整條曲線移動 vs 沿線移動？",a:"價格變 → 沿線移動（需求量/供應量變）\n其他因素變 → 整條曲線移動（需求/供應變）\n★ 答方向題先判斷是移動還是滑動",explain:"需求曲線畫的是「價格 vs 需求量」。\n價格自己變 → 在這條線上滑動（quantity demanded 變）。\n價格以外因素變（收入/偏好/替代品價格）→ 整條線搬家（demand 變）。\n口訣：變的變量是價格 → 沿線；不是價格 → 移線。"},
+ {q:"均衡價格：短缺與盈餘",a:"P 高於均衡 → 盈餘（supply 過剩）→ 價格↓\nP 低於均衡 → 短缺 → 價格↑\n★ 畫圖：交點就是均衡，先畫圖再寫字","explain":"價格是自動調節器：\n定太高 → 賣不完（盈餘）→ 賣家降價；定太低 → 買不到（短缺）→ 買家抬價。\n只有均衡價 Pₑ 使需求量 = 供給量（市場出清）。\n畫圖：價格在均衡上方是盈餘、下方是短缺，差距是水平距離。"},
+{q:"需求價格彈性（PED）公式 + 與總收益的關係",a:"PED = 需求量變動% / 價格變動%（弧彈性·中點法）\n|PED|>1 彈性大：降價 → 總收益↑\n|PED|<1 缺乏彈性：降價 → 總收益↓\n★ DSE 只考弧彈性，不考點彈性",explain:"總收益 = 價格 × 數量。降價 → 每件少賺但賣得多。\n|PED|>1（彈性大）：多賣的效果蓋過單價損失 → 總收益上升。\n|PED|<1（彈性小）：買家不敏感，降價賣不多 → 總收益下降。\n必需品彈性小、奢侈品彈性大。DSE 彈性一律用弧（中點）公式，題目給兩點價格數量時用中點法。"},
+ {q:"消費者盈餘與生產者盈餘",a:"CS = 願付價 − 實付價（需求曲線下、價格線上）\nPS = 實收價 − 願收價（價格線下、供給曲線上）\n★ 徵税/價格管制後，兩盈餘變化是 DSE 愛考圖"},
+ {q:"固定成本 vs 可變成本",a:"FC：不隨產量變（租金）\nVC：隨產量變（原材料）\nTC = FC + VC；AC = TC/Q\n★ 短期的概念，長期沒有固定成本"},
+ {q:"規模經濟（Economies of Scale）",a:"產量↑ → 平均成本↓ 的原因：專業化分工、大批量採購折扣、技術設備\n★ 與規模不經濟（管理困難）成對考"},
+ {q:"完全競爭 vs 壟斷 關鍵差異",a:"完全競爭：價格接受者（price taker）、自由進出、長期零經濟利潤\n壟斷：價格制定者、有進入壁壘、可長期賺經濟利潤\n★ MC=MR 是兩者共同的利潤最大化條件","explain":"完全競爭：企業多到每家都是價格接受者（水平需求線），自由進出 → 長期經濟利潤歸零。\n壟斷：一家獨大、有進入壁壘 → 面對整條向下需求線，可長期賺經濟利潤。\n共同點：都按 MR = MC 定產量；壟斷再按需求曲線定高價。"},
+ {q:"外部性 + 政府對策",a:"負外部性（污染）：私人成本 < 社會成本 → 產量過多\n對策：庇古税 / 配額 / 規管\n正外部性（教育）：補貼 / 政府提供","explain":"外部性 = 你的行為影響無關第三方卻沒付/沒收費。\n負外部性（排污）：私人成本 < 社會成本 → 生產過多 → 用庇古税/配額「內部化」。\n正外部性（教育/疫苗）：私人收益 < 社會收益 → 生產過少 → 補貼鼓勵。\n圖上是 MPC/MSB 與 MSC 的差距。"},
+ {q:"GDP 是什麼？（必背定義）",a:"GDP = 本地生產總值：某時期內本地生產的所有最終貨物與服務的市場總值\n★ 注意：最終品不重複計中間品；二手貨不計；只計本地生產","explain":"GDP 四個條件缺一不可：①當期生產（不是賣二手）②最終品（麪粉→麪包只算麪包，避免重複）③本地生產（港人在內地廠生產不算）④市場價值（自己做飯不算）。\n所以二手交易、中間品、家務、非法活動都不計。"},
+ {q:"CPI 通脹怎麼算",a:"CPI = (當期一籃子價格 / 基期價格) × 100\n通脹率 = (CPI當期 − CPI前期)/CPI前期 × 100%\n★ 一籃子固定，權重按消費佔比"},
+{q:"失業 vs 就業不足（underemployment）點分？",a:"失業：有能力並願意工作、正在找但仍找不到的人\n就業不足：有工作但工時不足/技能未用盡，想多做卻做不到\n★ 香港特色高頻點：就業不足算就業、不算失業，但反映勞動力未充分利用",explain:"失業 = 完全沒工作且在找；就業不足 = 有工作但不充分（兼職想轉全職、學非所用）。\n兩者都代表勞動力市場未達充分就業，但統計口徑不同：就業不足者計入就業人口。\nDSE 愛考經濟下行時兩者同向升，但升幅不同——企業通常先減工時（就業不足升）再裁員（失業率升）。"},
+{q:"總需求-總供應（AD-AS）宏觀均衡",a:"AD 下傾（消費/投資/政府/淨出口）\nAS 上傾；LRAS 垂直（潛在產出）\n★ 財政政策移動 AD：減税/增支 → AD 右移",explain:"AD = 消費+投資+政府支出+淨出口。AD 右移 → 短期產出↑ 物價↑。\nAS 短期上斜（價格高願意多產），長期垂直（經濟已達潛在產出，價再高也產不出更多）。\n所以刺激政策短期提產出、長期只推高物價——DSE 不考 AD 推導、Phillips 曲線、貨幣數量論，答定性因果鏈即可。"},
+ {q:"財政政策 vs 貨幣政策",a:"財政：政府税收 + 支出（預算案）\n貨幣：金管局調整利率/貨幣供應\n★ 答政策題：寫工具 → 寫對 AD 影響 → 寫對產出物價影響","explain":"財政 = 政府收支（税收/開支），政府預算決策，直接動 AD 的 G 和影響 C。\n貨幣 = 央行管貨幣供應/利率，影響投資。\n香港是聯繫匯率 → 金管局不能自由調利率（要跟美息）→ 貨幣政策空間小，財政政策更常用——香港特色常考。"},
+ {q:"比較優勢與自由貿易",a:"比較優勢：機會成本較低的一方生產該品\n貿易利益：兩國按比較優勢分工 → 總產量↑雙方受益\n★ 先算機會成本再下結論"},
+ {q:"匯率升/貶值的影響",a:"本幣升值：進口便宜、出口變貴（淨出口↓）\n本幣貶值：出口競爭力↑、進口貴（或通脹壓力）\n★ 聯繫旅遊業/留學的例子最好答"},
+{q:"貨幣的四大功能 + 香港貨幣供應",a:"貨幣功能：交易媒介、計值單位、儲藏價值、延期付款標準\n香港貨幣供應：M1 = 紙幣硬幣 + 活期存款\nM2 = M1 + 儲蓄/定期存款（最常用指標）\nM3 = M2 + 其他存款\n★ 貨幣是存量、收入是流量，別混淆",explain:"貨幣功能圍繞解決「以物易物的雙重巧合難題」：交易媒介（最核心）、計值單位（標價）、儲藏價值（跨期保留購買力）、延期付款（借貸契約以貨幣計）。\nM1→M3 是不同口徑的貨幣供應，越往外範圍越大、流動性越低。DSE 問「最廣義貨幣」答 M3。必修 Topic H 原本 30 張卡零覆蓋，此卡補最大缺口。"},
+{q:"價格上限（Price ceiling）後果兩步？",a:"1) 上限設在均衡價下方才有效\n2) 後果：需求量 > 供應量 → 短缺\n→ 非價格配給（排隊/黑市）\n→ 效率損失 DWL\n★ 上限高於均衡價 = 無效（形同虛設）",explain:"價格上限是政府規定的最高價，只有定在均衡價之下才會「綁住」市場：價格上不去，供應少、需求多 → 短缺。\n短缺後貨品怎麼分？排隊、先到先得、黑市高價——價格機制被禁後的替代配給。\n反之上限高於均衡價，市場價本來到不了，管制無效。價格下限（如最低工資）邏輯鏡像 → 造成盈餘。卷一 MC + 卷二長題都高頻。"},
+{q:"四種市場結構一句話特徵",a:"完全競爭：賣家多、產品同質、自由進出、價格接受者\n壟斷競爭：賣家多、產品有差異、自由進出\n寡頭：少數大賣家、互相倚賴、有壁壘\n壟斷：一家獨大、無近似替代、壁壘高\n★ 按「賣家數目 + 產品差異 + 進入難度」三維記",explain:"市場結構由三個維度區分：賣家數目（多→少）、產品同質與否、進出難易。\n完全競爭在一端（多+同質+自由進出），壟斷在另一端（一+無替代+高壁壘）；中間是壟斷競爭（多但產品有差異，如餐廳）與寡頭（少數幾家互相盯住，如電訊商）。\nDSE 只考一般特徵比較，不考 MR/MC 曲線分析（那是選修一）。"},
+{q:"銀行如何「創造」存款？（銀行乘數）",a:"部分準備金制度：銀行保留準備金（如 20%），其餘貸出\n貸出的錢再存入 → 再貸出 → 存款多倍擴張\n存款總額 = 初始存款 × (1/準備金率)\n銀行乘數 = 1 / 準備金率\n★ 現金流失或銀行持超額準備會令實際乘數變小",explain:"一筆 1000 元存款，銀行留 200（準備金率 20%），800 貸出；收款人再存入 800，銀行留 160、貸 640…… 無限循環。\n幾何級數加總：總存款 = 1000×(1+0.8+0.8²+…) = 1000×(1/0.2) = 5000。\n準備金率越低、創造能力越強——央行控制準備金率即可控制貨幣供應。DSE 卷二 B 部常考計算。"},
+{q:"供應價格彈性（PES）的決定因素？",a:"PES = 供應量變動% / 價格變動%\n時間越長越有彈性（可調整生產）\n存貨多 / 生產要素流動快 → 彈性大\n★ 極短期供應（鮮魚市場）幾乎完全無彈性（垂直）",explain:"供應彈性 = 生產對價格的反應度，頭號決定因素是時間：極短期產能/存貨固定，價升也供不應求（無彈性）；長期可擴產、可進出 → 彈性大。\n其他因素：存貨、生產要素流動快慢、剩餘產能。土地/古董等供給固定 = 完全無彈性。"},
+{q:"羅倫茲曲線 + 堅尼係數怎麼看？",a:"羅倫茲曲線：越彎離對角線遠 = 收入分配越不均\n堅尼係數 = A/(A+B)：0 完全均等 → 1 完全不均\n香港堅尼係數偏高 → 收入不均顯著\n★ DSE 只考讀圖與意義，不需建構/計算",explain:"羅倫茲曲線：人口累計% 對收入累計%。對角線 = 絕對均等，曲線下彎 = 少數人佔多數收入，彎越厲害越不均。\n堅尼係數 = 對角線與曲線間面積 ÷ 三角總面積：0 全均等、1 一人獨佔。\n常與政府再分配（税 + 轉移支付）及效率公平取捨結合考。"},
+{q:"利潤最大化產量怎麼定？（P=MC 規則）",a:"既定價格下看邊際：\nMC < P：增產有利（多賺 P−MC）→ 繼續產\nMC > P：減產\n利潤最大產量：MC = P\n★ MC 曲線在 P 下方的部分 = 廠商供應線",explain:"廠商決策看邊際：多產一單位多花 MC、多收 P。MC<P 增產多賺，MC>P 停手。\n利潤最大化點 = MC 穿 P 處。完全競爭價格固定，所以 MC 曲線就是供應線——價格越高願產越多。\nDSE 只考「既定價格 + MC 表」選產量，不考 MR/MC 曲線圖。"},
+{q:"國際收支（BoP）兩大帳？",a:"經常帳：貨物 + 服務 + 初次收入（投資收益等）+ 二次收入（無償轉移）\n資本及金融帳：資本轉移 + 直接投資 + 證券投資 + 其他\n★ 不需細分細項；香港長期經常帳盈餘（服務出口強）",explain:"國際收支記錄本地與外地全部經濟交易：經常帳管「賺回來的」（賣貨、旅遊、投資回報、匯款），資本及金融帳管「資產買賣」（直接投資、買股債）。\n順差 = 流入 > 流出。香港靠金融與轉口服務常年經常帳盈餘。"},
+{q:"從量税（間接税）税負由誰承擔？",a:"向賣方徵從量税 → 供應線左移（上移税額）\n消費者付價升至 Pc，賣方實收 Pc − 税\n税負分攤看彈性：需求彈性小 / 供應彈性大 → 消費者承擔多\n★ 圖上新舊均衡垂直距 = 税額",explain:"從量税 = 每單位固定税額（如每升煙酒税）。對賣方徵使供應線整條上移税額 → 均衡量減、價格升。\n税負不必然全由買方扛：誰彈性小誰擔多——需求缺彈性（香煙）消費者扛大頭；供應缺彈性（土地）地主扛。\n圖上量法：新價格與賣方淨得之差分屬兩邊。價格上下限/配額/税 = DSE 市場干預四件套。"},
+ {q:"★ 經濟答題三步模板（必用）",a:"Definition（定義術語）→ Explanation（解釋機制）→ Diagram/Example（畫圖或舉例）\n★ 長題每問都按三步走，結構分穩拿"},
+{q:"★ 必畫圖（Diagram）清單",a:"供求均衡、PED 與總收益、税收負擔分攤、價格上限/下限、配額、外部性？→ 不畫！、AD-AS、匯率圖？→ 不畫！\n★ DSE 明確不考外部性圖與匯率圖（用文字+實例），畫了反而浪費時間",explain:"DSE 經濟必修要求畫圖的範圍：供需均衡與移動、CS/PS、價格上下限/配額/從量税與税負分攤、DWL、AD-AS。\n明確不需要圖解的：外部性（只以實例説明）、匯率（不需圖形分析）、比較優勢 PPF（選修二才用）。\n每週畫熟 3 個高頻圖，考試直接默寫。"},
+{"type":"trap","q":"價格下降，需求（Demand）曲線會移動嗎？",a:"不會！價格變 → 沿需求曲線移動（需求量變）\n只有非價格因素變才整條曲線移\n🔥 卷一最常考的概念區分：demand vs quantity demanded",explain:"需求曲線 = 不同價格下消費者願意買的數量表。價格變了，只是在這張表上換個點，線本身不動。\n收入、偏好、替代品價格等變了，才是整張表改寫 → 線移動。\n所以降價促銷永遠只造成「沿線移動」，不會「移動需求曲線」。"},
+ {"type": "trap", "q": "彈性大，降價一定增收嗎？", "a": "是：|PED|>1 彈性大 → 降價 → 總收益增加\n|PED|<1 缺乏彈性 → 降價 → 總收益反而減少\n🔥 方向題先寫 |PED| 與 1 的關係再下結論"},
+ {"type": "trap", "q": "機會成本是「所有放棄的加起來」嗎？", "a": "不是！是放棄的選項中價值最高的那一個\n🔥 只選最高，不是加總"},
+ {"type": "trap", "q": "哪些不計入 GDP？（高頻）", "a": "1) 中間品（避免重複計算）\n2) 二手貨交易\n3) 非市場活動（家務/自用）\n4) 非法活動\n🔥 只算當期最終品 + 本地生產"},
+ {"type": "trap", "q": "本幣升值的影響，只答一邊扣分嗎？", "a": "會！升值 = 出口競爭力↓ + 進口變便宜（淨出口↓）\n🔥 雙邊都答：對出口、對進口、對旅遊收支各一句"},
+ {"type": "trap", "q": "通脹中誰是受益者？", "a": "固定利率借款人（債務人）受益——還的錢實際購買力下降\n債權人/固定收入者受損\n🔥 關鍵限定詞：固定利率 + 意料之外的通脹"},
+ {"type": "skill", "q": "經濟長題萬能三步？", "a": "① Definition：定義題中術語（拿定義分）\n② Explanation：解釋機制/因果\n③ Diagram or Example：畫圖或舉例\n🔥 每問都走三步，結構分不丟"},
+ {"type": "skill", "q": "畫供求圖第一步？", "a": "先標軸：縱軸 P（價格）、橫軸 Q（數量）\n再畫 D、S 曲線，交點標均衡 E 和 Pₑ、Qₑ\n🔥 軸標籤畫錯整題沒分，先軸後線"},
+{"type":"skill","q":"見到政府政策（government policy）先判斷什麼？",a:"1) 先分類：\n財政政策（税收/政府開支）\n貨幣政策（貨幣供應/利率）\n微觀干預（價格上下限/配額/税）\n2) 再選分析框架：宏觀用 AD-AS，微觀用市場供需圖\n🔥 分錯類 = 整題框架錯",explain:"政府政策分三層：宏觀的財政（預算案：税與開支）和貨幣（金管局：利率/貨幣供應，香港受聯繫匯率制約），微觀的特定市場干預（租金管制/最低工資/煙酒税）。\n決定用哪套圖：影響總需求/總產出的走 AD-AS；影響單個市場價格與數量的走該市場供需圖。\n先分類再畫圖，是政策題拿分第一步。"},
+ {"type": "skill", "q": "「效率」題怎麼答才拿滿分？", "a": "社會總盈餘（消費者盈餘+生產者盈餘）最大化\n或 邊際利益 = 邊際成本（MB=MC）\n🔥 別隻寫「資源有效配置」，要寫機制"},
+ {"type": "skill", "q": "比較優勢題三步", "a": "1) 列表：每人/每國生產兩種產品的產量\n2) 算機會成本（放棄量/獲得量）\n3) 機會成本低者生產該產品，分工交易雙方受益"},
+ {"type": "skill", "q": "宏觀數據題答題順序？", "a": "先算變化率（(新−舊)/舊 ×100%）\n再與去年同期比\n最後用 AD-AS 解釋原因\n🔥 有數字必引用：GDP 升了 X% 説明…"}
 ]
 };
 </script>
 <script>
-/* ========== 应用逻辑 ========== */
+/* ========== 應用邏輯 ========== */
 function $(id){return document.getElementById(id)}
 function ls(k,d){try{var v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}}
 function ss(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
@@ -398,21 +429,21 @@ document.querySelectorAll(".tabbar button").forEach(function(b){
 function renderToday(){
   var d=new Date().getDay(); // 0 Sun
   var idx=d===0?7:d;
-  var names=["周日","周一","周二","周三","周四","周五","周六"];
+  var names=["週日","週一","週二","週三","週四","週五","週六"];
   $("dayName").textContent=names[d];
   var slots=SCHED[idx]||[];
   var html="";
   slots.forEach(function(s){
     var tag="";
-    if(/大课/.test(s[1]))tag='<span class="pill" style="background:var(--accent)">大课</span>';
-    else if(/一对一/.test(s[1]))tag='<span class="pill" style="background:var(--accent2)">1对1</span>';
-    else if(/预习/.test(s[1]))tag='<span class="pill" style="background:#64748b">预习</span>';
-    else if(/复盘|错题|清零/.test(s[1]))tag='<span class="pill" style="background:#9333ea">整理</span>';
-    else if(/运动|散步/.test(s[1]))tag='<span class="pill" style="background:#16a34a">运动</span>';
+    if(/大課/.test(s[1]))tag='<span class="pill" style="background:var(--accent)">大課</span>';
+    else if(/一對一/.test(s[1]))tag='<span class="pill" style="background:var(--accent2)">1對1</span>';
+    else if(/預習/.test(s[1]))tag='<span class="pill" style="background:#64748b">預習</span>';
+    else if(/覆盤|錯題|清零/.test(s[1]))tag='<span class="pill" style="background:#9333ea">整理</span>';
+    else if(/運動|散步/.test(s[1]))tag='<span class="pill" style="background:#16a34a">運動</span>';
     html+='<div class="slot"><span class="tm">'+s[0]+'</span><span class="tx">'+tag+' '+s[1]+'</span></div>';
   });
   $("todaySlots").innerHTML=html;
-  /* 三件套状态 */
+  /* 三件套狀態 */
   var dk=dateKey();
   ["t1","t2","t3"].forEach(function(k){
     var el=document.querySelector('.chk[data-k="'+k+'"]');
@@ -429,13 +460,13 @@ document.querySelectorAll(".chk").forEach(function(c){
 function renderWeek(){
   var w=ls("sd_week",1);
   $("wtag").textContent="第 "+w+" 周（9/7 起）";
-  $("weekFocus").textContent=WEEK_FOCUS[w]?("W"+w+"："+WEEK_FOCUS[w]):"设置页可调整周数";
+  $("weekFocus").textContent=WEEK_FOCUS[w]?("W"+w+"："+WEEK_FOCUS[w]):"設置頁可調整週數";
 }
 document.querySelectorAll('.chk').length; // noop
 
-/* 闪卡 */
+/* 閃卡 */
 var curSubj="math";
-var deckOrder=[];   // 当轮顺序（卡 index 数组）
+var deckOrder=[];   // 當輪順序（卡 index 數組）
 var deckPos=0;
 function buildOrder(){
   var n=CARDS[curSubj].length;
@@ -454,7 +485,7 @@ function initCards(){
     var b=document.createElement("div");
     b.className="subj-btn"+(k===curSubj?" on":"");
     b.style.setProperty("--sc",SUBJ_COLOR[SUBJ_FULL[k]]);
-    b.innerHTML="<span>"+SUBJ_FULL[k]+"</span><small>"+CARDS[k].length+" 张</small>";
+    b.innerHTML="<span>"+SUBJ_FULL[k]+"</span><small>"+CARDS[k].length+" 張</small>";
     b.addEventListener("click",function(){curSubj=k;initCards();showCard();});
     row.appendChild(b);
   });
@@ -471,7 +502,7 @@ var curExplain="";
 function showCard(){
   var f=$("flash");f.classList.remove("show");
   $("explainText").style.display="none";
-  if(deckOrder.length===0){$("qText").textContent="卡组已清空？点下方重置本科重新来";$("aText").textContent="";$("cardTag").textContent=SUBJ_FULL[curSubj];$("btnExplain").style.display="none";return}
+  if(deckOrder.length===0){$("qText").textContent="卡組已清空？點下方重置本科重新來";$("aText").textContent="";$("cardTag").textContent=SUBJ_FULL[curSubj];$("btnExplain").style.display="none";return}
   if(deckPos>=deckOrder.length)deckPos=0;
   var idx=deckOrder[deckPos];
   var c=CARDS[curSubj][idx];
@@ -487,12 +518,12 @@ function showCard(){
   if(c.explain){curExplain=c.explain;$("btnExplain").style.display="block"}
   else{curExplain="";$("btnExplain").style.display="none"}
 }
-$("flash").addEventListener("click",function(){this.classList.toggle("show");$("sideLbl").textContent=this.classList.contains("show")?"答案":"问题"});
-$("btnFlip").addEventListener("click",function(){$("flash").classList.toggle("show");$("sideLbl").textContent=$("flash").classList.contains("show")?"答案":"问题"});
+$("flash").addEventListener("click",function(){this.classList.toggle("show");$("sideLbl").textContent=this.classList.contains("show")?"答案":"問題"});
+$("btnFlip").addEventListener("click",function(){$("flash").classList.toggle("show");$("sideLbl").textContent=$("flash").classList.contains("show")?"答案":"問題"});
 $("btnExplain").addEventListener("click",function(){
   var el=$("explainText");
-  if(el.style.display==="none"){el.textContent=curExplain;el.style.display="block";this.textContent="收起讲解"}
-  else{el.style.display="none";this.textContent="📖 想看原理讲解？"}
+  if(el.style.display==="none"){el.textContent=curExplain;el.style.display="block";this.textContent="收起講解"}
+  else{el.style.display="none";this.textContent="📖 想看原理講解？"}
 });
 $("btnAsk").addEventListener("click",function(){
   if(deckOrder.length===0)return;
@@ -502,15 +533,15 @@ $("btnAsk").addEventListener("click",function(){
   list.push({subj:curSubj,q:c.q,date:dateKey()});
   ss("sd_asklist",list);
   renderAskHint();
-  alert("已加入待讲解清单（共 "+list.length+" 条）\n周日复盘发教练，讲解会补进下一版卡片");
+  alert("已加入待講解清單（共 "+list.length+" 條）\n週日覆盤發教練，講解會補進下一版卡片");
 });
 function renderAskHint(){
   var el=$("askHint");if(!el)return;
   var n=ls("sd_asklist",[]).length;
-  el.textContent=n>0?"待讲解 "+n+" 条（周复盘会自动带上，教练逐条讲）":"待讲解清单为空 🎉";
+  el.textContent=n>0?"待講解 "+n+" 條（周覆盤會自動帶上，教練逐條講）":"待講解清單為空 🎉";
 }
 $("rvClearAsk").addEventListener("click",function(){
-  if(!confirm("清空待讲解清单？（教练讲完才清）"))return;
+  if(!confirm("清空待講解清單？（教練講完才清）"))return;
   ss("sd_asklist",[]);
   renderAskHint();
 });
@@ -530,16 +561,16 @@ function markCard(v){
 }
 $("btnKnow").addEventListener("click",function(){markCard("know")});
 $("btnAgain").addEventListener("click",function(){markCard("again")});
-$("btnResetSubj").addEventListener("click",function(){if(confirm("重置"+SUBJ_FULL[curSubj]+"全部卡进度？")){localStorage.removeItem("sd_prog_"+curSubj);initCards();}});
+$("btnResetSubj").addEventListener("click",function(){if(confirm("重置"+SUBJ_FULL[curSubj]+"全部卡進度？")){localStorage.removeItem("sd_prog_"+curSubj);initCards();}});
 
-/* 错题 */
+/* 錯題 */
 var mkFilter="全部";
 function renderMistakes(){
   var list=ls("sd_mistakes",[]);
   if(mkFilter!=="全部")list=list.filter(function(m){return m.subj===mkFilter});
-  $("mkCount").textContent=list.length+" 条";
+  $("mkCount").textContent=list.length+" 條";
   var f=$("mkFilter");f.innerHTML="";
-  ["全部","数学","化学","生物","经济"].forEach(function(s){
+  ["全部","數學","化學","生物","經濟"].forEach(function(s){
     var b=document.createElement("span");
     b.className="badge";b.style.cursor="pointer";
     b.style.background=(mkFilter===s)?"#1e293b":"#eef1f6";
@@ -576,7 +607,7 @@ function renderMistakes(){
 }
 $("mkAdd").addEventListener("click",function(){
   var note=$("mkNote").value.trim();
-  if(!note){alert("写一句知识点再入本");return}
+  if(!note){alert("寫一句知識點再入本");return}
   var list=ls("sd_mistakes",[]);
   var d=new Date();
   var ds=d.getMonth()+1+"/"+d.getDate();
@@ -586,35 +617,35 @@ $("mkAdd").addEventListener("click",function(){
   renderMistakes();
 });
 
-/* 复盘 */
+/* 覆盤 */
 $("rvGen").addEventListener("click",function(){
   var w=ls("sd_week",1);
   var ask=ls("sd_asklist",[]);
   var askTxt="";
   if(ask.length){
-    askTxt="\n5. 待讲解清单（"+ask.length+" 条，请教练逐条讲）：\n";
+    askTxt="\n5. 待講解清單（"+ask.length+" 條，請教練逐條講）：\n";
     ask.forEach(function(a,i){
       askTxt+="  "+(i+1)+") ["+SUBJ_FULL[a.subj]+"] "+a.q+"（"+a.date+"）\n";
     });
   }
-  var t="【第 "+w+" 周复盘 · "+(new Date().getMonth()+1)+"/"+new Date().getDate()+"】\n"
-    +"1. 本周进度："+($("rv1").value.trim()||"—")+"\n"
-    +"2. 错题统计："+($("rv2").value.trim()||"—")+"\n"
-    +"3. 下周调整："+($("rv3").value.trim()||"—")+"\n"
-    +"4. 一句话自评："+($("rv4").value.trim()||"—")
+  var t="【第 "+w+" 周覆盤 · "+(new Date().getMonth()+1)+"/"+new Date().getDate()+"】\n"
+    +"1. 本週進度："+($("rv1").value.trim()||"—")+"\n"
+    +"2. 錯題統計："+($("rv2").value.trim()||"—")+"\n"
+    +"3. 下週調整："+($("rv3").value.trim()||"—")+"\n"
+    +"4. 一句話自評："+($("rv4").value.trim()||"—")
     +askTxt;
   $("rvOut").value=t;
 });
 
-/* 设置 */
+/* 設置 */
 $("weekNo").value=ls("sd_week",1);
 $("btnApplyWeek").addEventListener("click",function(){
   var v=parseInt($("weekNo").value,10);
-  if(v>=1&&v<=40){ss("sd_week",v);renderWeek();alert("已设为第 "+v+" 周")}
-  else alert("输入 1-40");
+  if(v>=1&&v<=40){ss("sd_week",v);renderWeek();alert("已設為第 "+v+" 周")}
+  else alert("輸入 1-40");
 });
 $("btnResetAll").addEventListener("click",function(){
-  if(confirm("确定清空全部学习数据？此操作不可恢复。")){
+  if(confirm("確定清空全部學習數據？此操作不可恢復。")){
     var ks=[];
     for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k.indexOf("sd_")===0)ks.push(k)}
     ks.forEach(function(k){localStorage.removeItem(k)});
@@ -622,7 +653,7 @@ $("btnResetAll").addEventListener("click",function(){
   }
 });
 
-/* 自定义加卡 */
+/* 自定義加卡 */
 function mergeCustom(){
   var list=ls("sd_custom",[]);
   list.forEach(function(c){
@@ -640,7 +671,7 @@ function renderCustomList(){
   if(!el)return;
   var list=ls("sd_custom",[]);
   if(!list.length){el.innerHTML="";return}
-  var h='<div style="margin-top:10px;padding:8px 2px"><div class="muted" style="margin-bottom:4px">我的自定卡（'+list.length+' 张）</div><ul class="mk-list">';
+  var h='<div style="margin-top:10px;padding:8px 2px"><div class="muted" style="margin-bottom:4px">我的自定卡（'+list.length+' 張）</div><ul class="mk-list">';
   list.forEach(function(c,i){
     var col=SUBJ_COLOR[SUBJ_FULL[c.subj]]||"#64748b";
     var tp=c.type==="trap"?"🔥陷阱":(c.type==="skill"?"📐技巧":"必背");
@@ -652,7 +683,7 @@ function renderCustomList(){
   el.querySelectorAll(".del").forEach(function(b){
     b.addEventListener("click",function(){
       var i=parseInt(b.getAttribute("data-i"),10);
-      if(!confirm("删除这张自定卡？（会重置该科闪卡进度）"))return;
+      if(!confirm("刪除這張自定卡？（會重置該科閃卡進度）"))return;
       var list=ls("sd_custom",[]);
       var subj=list[i].subj;
       list.splice(i,1);
@@ -671,7 +702,7 @@ $("btnAddCard").addEventListener("click",function(){
 $("acCancel").addEventListener("click",function(){$("addCardBox").style.display="none"});
 $("acSave").addEventListener("click",function(){
   var q=$("acQ").value.trim(),a=$("acA").value.trim();
-  if(!q||!a){alert("问题和答案都要填");return}
+  if(!q||!a){alert("問題和答案都要填");return}
   var subj=$("acSubj").value,type=$("acType").value;
   var list=ls("sd_custom",[]);
   list.push({subj:subj,type:type,q:q,a:a});
