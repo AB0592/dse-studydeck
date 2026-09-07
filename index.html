@@ -129,6 +129,18 @@
       <div class="cnt"><span id="knowCnt">0</span> 已掌握 / 复习队列 <span id="queueCnt">0</span></div>
       <div class="bar"><i id="progBar"></i></div>
       <div class="cnt muted" style="font-size:11px">🔥陷阱 = DSE 易错坑（审题/计算/概念）｜📐技巧 = 答题套路（模板/信号词）｜无标 = 必背基础<br>复习顺序：先刷 🔥 和 📐，再滚基础卡</div>
+      <div class="btn ghost" id="btnAddCard" style="text-align:center;margin-top:10px">➕ 加卡（把常错的点做成新卡）</div>
+      <div id="addCardBox" style="display:none;margin-top:10px;background:#f7f8fc;border:1px dashed var(--line);border-radius:12px;padding:12px">
+        <div class="fld"><label>科目</label><select id="acSubj"><option value="math">数学</option><option value="chem">化学</option><option value="bio">生物</option><option value="econ">经济</option></select></div>
+        <div class="fld"><label>类型</label><select id="acType"><option value="base">必背基础</option><option value="trap">🔥 陷阱（易错坑）</option><option value="skill">📐 技巧（答题套路）</option></select></div>
+        <div class="fld"><label>问题（正面）</label><input id="acQ" placeholder="例：等比数列公比 r 的范围？"></div>
+        <div class="fld"><label>答案（背面）</label><textarea id="acA" placeholder="例：|r| < 1 才有无穷项和…"></textarea></div>
+        <div class="btn-row">
+          <button class="btn g" id="acSave" style="flex:1">保存</button>
+          <button class="btn ghost" id="acCancel" style="flex:1">取消</button>
+        </div>
+      </div>
+      <div id="customList"></div>
     </div>
   </div>
 
@@ -180,7 +192,16 @@
     </div>
     <div class="panel">
       <h2><span class="dot" style="background:var(--sub)"></span>使用说明</h2>
-      <div class="muted">· 今日页：每天自动显示当天日程，跟着时段走<br>· 闪卡页：点卡片翻面 → 诚实点"记住了/再练"，不会的会反复出现<br>· 错题页：30 秒记一条，周末按科目清<br>· 复盘页：周日晚填，生成文本复制发教练<br>· 数据存在本机浏览器，清除浏览记录会丢</div>
+      <div class="muted"><b>每日口诀：早读经济 · 课间跟课 · 睡前清队 · 周末清仓</b><br>
+· 早读后 10 分钟：刷经济卡（概念密集靠背）<br>
+· 课间 5-10 分钟：今天上哪科大课就刷哪科（学完即锁）<br>
+· 睡前 10 分钟：登记错题 + 清「再练」队列<br>
+· 周末 30 分钟：清空本周「再练」，清不空 = 记忆欠账写进周复盘<br>
+· 数学卡每周至少完整过 1 次（周一早读后专刷 15 分钟）<br>
+· 闪卡纪律：看题 → 3 秒默答 → 翻面核对；想不出点「再练」<br>
+· 卡类型：🔥陷阱（易错坑）→ 📐技巧（答题套路）→ 无标（必背基础），先刷 🔥📐<br>
+· 加卡：闪卡页点「➕ 加卡」，把自己常错的点做成新卡<br>
+· 数据存在本机浏览器，清除浏览记录会丢</div>
     </div>
     <div class="panel">
       <button class="btn ghost" id="btnResetAll" style="width:100%;color:var(--warn)">重置全部数据（慎用）</button>
@@ -556,7 +577,70 @@ $("btnResetAll").addEventListener("click",function(){
   }
 });
 
+/* 自定义加卡 */
+function mergeCustom(){
+  var list=ls("sd_custom",[]);
+  list.forEach(function(c){
+    if(CARDS[c.subj])CARDS[c.subj].push({type:c.type,q:c.q,a:c.a,user:1});
+  });
+}
+function rebuildCustom(){
+  Object.keys(CARDS).forEach(function(k){
+    CARDS[k]=CARDS[k].filter(function(c){return !c.user});
+  });
+  mergeCustom();
+}
+function renderCustomList(){
+  var el=$("customList");
+  if(!el)return;
+  var list=ls("sd_custom",[]);
+  if(!list.length){el.innerHTML="";return}
+  var h='<div style="margin-top:10px;padding:8px 2px"><div class="muted" style="margin-bottom:4px">我的自定卡（'+list.length+' 张）</div><ul class="mk-list">';
+  list.forEach(function(c,i){
+    var col=SUBJ_COLOR[SUBJ_FULL[c.subj]]||"#64748b";
+    var tp=c.type==="trap"?"🔥陷阱":(c.type==="skill"?"📐技巧":"必背");
+    var tc=c.type==="trap"?"#dc2626":(c.type==="skill"?"#7c3aed":col);
+    h+='<li><span class="mk-tag" style="background:'+tc+'">'+SUBJ_FULL[c.subj]+'·'+tp+'</span><span>'+c.q.slice(0,46)+(c.q.length>46?"…":"")+'</span><button class="del" data-i="'+i+'">✕</button></li>';
+  });
+  h+='</ul></div>';
+  el.innerHTML=h;
+  el.querySelectorAll(".del").forEach(function(b){
+    b.addEventListener("click",function(){
+      var i=parseInt(b.getAttribute("data-i"),10);
+      if(!confirm("删除这张自定卡？（会重置该科闪卡进度）"))return;
+      var list=ls("sd_custom",[]);
+      var subj=list[i].subj;
+      list.splice(i,1);
+      ss("sd_custom",list);
+      rebuildCustom();
+      localStorage.removeItem("sd_prog_"+subj);
+      if(curSubj===subj){deckOrder=buildOrder();deckPos=0;showCard()}
+      renderCustomList();
+      if(curSubj===subj)initCards();
+    });
+  });
+}
+$("btnAddCard").addEventListener("click",function(){
+  $("addCardBox").style.display=$("addCardBox").style.display==="none"?"block":"none";
+});
+$("acCancel").addEventListener("click",function(){$("addCardBox").style.display="none"});
+$("acSave").addEventListener("click",function(){
+  var q=$("acQ").value.trim(),a=$("acA").value.trim();
+  if(!q||!a){alert("问题和答案都要填");return}
+  var subj=$("acSubj").value,type=$("acType").value;
+  var list=ls("sd_custom",[]);
+  list.push({subj:subj,type:type,q:q,a:a});
+  ss("sd_custom",list);
+  CARDS[subj].push({type:type,q:q,a:a,user:1});
+  $("acQ").value="";$("acA").value="";
+  $("addCardBox").style.display="none";
+  curSubj=subj;initCards();
+  renderCustomList();
+});
+
 /* init */
+mergeCustom();
+renderCustomList();
 renderWeek();renderToday();
 </script>
 </body>
